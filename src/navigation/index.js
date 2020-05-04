@@ -15,6 +15,9 @@ import UbahDetailRekening from "../screens/reward/UbahDetailRekening";
 import Referral from "../screens/referral";
 import DetailReferral from "../screens/referral/DetailReferral";
 import UbahKodeReferral from "../screens/referral/UbahKodeReferral";
+import Profile from "../screens/profile";
+import UpdateProfileFans from "../screens/profile/UpdateProfileFans";
+
 
 
 const StackNavigator = createStackNavigator(
@@ -63,6 +66,12 @@ const StackNavigator = createStackNavigator(
     },
     UbahKodeReferral: {
       screen: UbahKodeReferral,
+    },
+    Profile: {
+      screen: Profile,
+    },
+    UpdateProfileFans: {
+      screen: UpdateProfileFans,
     }
   },
   {
