@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Text, TextInput, Button } from "react-native-paper";
 import { color } from "react-native-tailwindcss";
 
-export default class Login extends Component {
+export default class LoginKirimUlang extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class Login extends Component {
   }
 
   CekOTP = () => {
-      if (this.state.otp != '1234') {
+      if (this.state.otp != '5678') {
         if (this.state.otp != '') {
           alert('Kode OTP salah');
         } else {
@@ -30,14 +30,12 @@ export default class Login extends Component {
       <>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>Masukkan Kode OTP Anda</Text>
+            <Text style={styles.title}>OTP Telah Dikirim Kembali</Text>
             <Text style={styles.subtitle}>
               Kode OTP telah dikirimkan ke nomor {this.state.nomor_hp}. Berlaku untuk 3 menit ke depan
             </Text>
           </View>
-          <Text 
-          style={styles.tombolLink} 
-          onPress={()=>navigate('LoginKirimUlang', {JSON_ListView_Clicked_Item: this.state.nomor_hp})}>Kirim Ulang OTP?</Text>
+          <Text style={styles.tombolLink}>Kirim Ulang OTP?</Text>
           <TextInput 
             value={this.state.otp}
             onChangeText={otp => this.setState({ otp })}

@@ -4,7 +4,8 @@ import IndexScreen from "../screens";
 import OfferScreen from "../screens/offer/index";
 import OfferDetail from "../screens/offer/detail";
 import Login from "../screens/OTP/Login";
-import Welcome from "../screens/OTP/Welcome";
+import LoginKirimUlang from "../screens/OTP/LoginKirimUlang";
+import Welcome from "../screens/OTP/";
 import OnboardingFans from "../screens/onboarding";
 import MyRewards from "../screens/reward";
 import DetailReward from "../screens/reward/DetailReward";
@@ -33,6 +34,9 @@ const StackNavigator = createStackNavigator(
     },
     Login: {
       screen: Login,
+    },
+    LoginKirimUlang: {
+      screen: LoginKirimUlang,
     },
     Welcome: {
       screen: Welcome,
