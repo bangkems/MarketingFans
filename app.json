@@ -2,6 +2,10 @@
   "expo": {
     "name": "MarketingFans",
     "slug": "MarketingFans",
+    "android": {
+      "package": "com.marketingplatform.fans",
+      "versionCode": 1
+    },
     "platforms": [
       "ios",
       "android",
