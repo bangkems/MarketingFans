@@ -1,9 +1,57 @@
-import React, {Component} from 'react'
+import React, {Component, useState} from 'react'
 import { StyleSheet, View, ScrollView, Dimensions} from 'react-native'
 import { Text, Button, TextInput, Appbar, Snackbar, HelperText, RadioButton, IconButton } from 'react-native-paper'
-import DateTimePicker from 'react-native-modal-datetime-picker';
-import moment from 'moment';
+import DateTimePickerModal from "react-native-modal-datetime-picker"
+import moment from 'moment'
+import 'moment/locale/id'
 import Header from "../../components/Header";
+
+function Kalendar() {
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const [chosenDate, setChosenDate] = useState('');
+
+  const handleConfirm = (datetime) => {
+    hideDatePicker(); //must be first
+    console.log("A date has been picked: ", datetime);
+    // setChosenDate(moment(datetime).format('dddd Do MMMM YYYY'))
+    setChosenDate(moment(datetime).format('DD-MMMM-YYYY'));
+  };
+
+  const showDatePicker = () => {
+  setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+  setDatePickerVisibility(false);
+  };
+
+  return (
+    <>
+      <View style={styles.calendarSection}>
+        <IconButton style={styles.calendarIcon}
+          icon="calendar"
+          color="#6F00F9"
+          size={40}
+          onPress={showDatePicker}
+        />
+
+        {/* <TextInput style={styles.inputCalendar} value={chosenDate} placeholder="Silahkan Pilih Tanggal"/> */}
+
+        <Text style={styles.fieldDesc}>{chosenDate}</Text>
+                
+        <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+          display="spinner"
+        />
+      </View>
+    </>
+  );
+}
+
 
 export default class App extends Component {
   constructor() {
@@ -11,8 +59,6 @@ export default class App extends Component {
     this.state = {
       show: false,
       value: '',
-      mode: 'date',
-      displayFormat: 'DD/MM/YYYY',
       visible: false,
       text: 'namakeren',
       namaLengkapFans: 'Zain Muhammad',
@@ -21,23 +67,6 @@ export default class App extends Component {
       jenisKelamin: 'pria'
     };
   }
-
-  showDateTimePicker = () => {
-   // alert('showDateTimePicker');
-    this.setState({ show: true });
-    // Keyboard.dismiss();
-  };
-
-  hideDateTimePicker = () => {
-    this.setState({ show: false });
-  };
-
-  handleDatePicked = value => {
-    this.setState({ value: value });
-    setTimeout(() => {
-      this.hideDateTimePicker();
-    }, 250);
-  };
 
   _hasErrors = () => {
     return !this.state.alamatEmail.includes('@');
@@ -48,7 +77,7 @@ export default class App extends Component {
   _onDismissSnackBar = () => this.setState({ visible: false });
 
   render() {
-    const { value, show, mode, displayFormat, visible} = this.state;
+    const {visible} = this.state;
     return (
         <>
     
@@ -87,40 +116,9 @@ export default class App extends Component {
             keyboardType='phone-pad'
           />
 
-          {/* <Text style={styles.fieldTitle}>Tanggal Lahir</Text>
-          <Button style={styles.buttonTanggal} mode='outlined' onPress={this.showDateTimePicker}>Pilih {value ? moment(value).format(displayFormat) : ''}</Button> */}
-            
-            {/* <TextInput style={styles.textInput} label={label} value={value ? moment(value).format(displayFormat) : ''} onFocus={this.showDateTimePicker} /> */}
-          {/* <Text>{label}</Text> */}
-          {/* <DateTimePicker
-            date={value ? new Date(value) : new Date()}
-            isVisible={show}
-            mode={mode}
-            display="spinner"
-            onConfirm={this.handleDatePicked}
-            onCancel={this.hideDateTimePicker}
-          /> */}
-
           <Text style={styles.fieldTitle}>Tanggal Lahir</Text>
-          <View style={styles.calendarSection}>
-            <IconButton style={styles.calendarIcon}
-              icon="calendar"
-              color="#6F00F9"
-              size={40}
-              onPress={this.showDateTimePicker}
-            />
-
-            <TextInput style={styles.inputCalendar} value={value ? moment(value).format(displayFormat) : ''} placeholder="Silahkan Pilih Tanggal" onFocus={this.showDateTimePicker} />
-            
-            <DateTimePicker
-              date={value ? new Date(value) : new Date()}
-              isVisible={show}
-              mode={mode}
-              display="spinner"
-              onConfirm={this.handleDatePicked}
-              onCancel={this.hideDateTimePicker}
-            />
-          </View>
+          <Kalendar
+          />
 
           <Text style={styles.fieldTitle}>Jenis Kelamin</Text>
             <RadioButton.Group
@@ -130,6 +128,10 @@ export default class App extends Component {
               <RadioButton.Item label="Pria" value="pria" style={styles.radioButton}/>
               <RadioButton.Item label="Wanita" value="wanita" style={styles.radioButton}/>
             </RadioButton.Group>
+
+          
+
+          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Profil</Button>
 
           <Snackbar
             style={styles.snackbar}
@@ -144,8 +146,6 @@ export default class App extends Component {
           >
             Profil kamu berhasil diperbarui!
           </Snackbar>
-
-          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Profil</Button>
 
         </View>
       </ScrollView>
@@ -230,5 +230,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     backgroundColor: '#fff',
     color: '#424242',
+  },
+  fieldDesc: {
+    flex: 1,
+    fontSize: 16,
+    marginLeft: 10,
+    marginRight: 20,
+    marginTop: 10,
+    marginBottom: 20,
   },
 })
