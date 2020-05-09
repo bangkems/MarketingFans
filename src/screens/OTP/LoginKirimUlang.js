@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   tombol: {
     marginTop: 20,
     paddingVertical: 5,
-    backgroundColor: color.purple700
+    backgroundColor: color.purple400
   },
   tombolLink: {
     textDecorationLine: 'underline',
