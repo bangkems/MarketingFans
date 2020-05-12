@@ -134,61 +134,32 @@ function index({ navigation }) {
           </Animated.ScrollView>
         </View>
       </SafeAreaView>
-      <Animated.View
-        onPress={handleOutsidePress}
-        style={{
-          opacity: Animated.add(0.1, Animated.multiply(fall, 0.9)),
-        }}
-      >
-        <TouchableOpacity
-          activeOpacity={0.1}
+      <View style={{ backgroundColor: "#2c2c2f" }}>
+        <Animated.View
+          onPress={handleOutsidePress}
           style={{
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-          activeOpacity={0.9}
-          onPress={() => {
-            bs.current.snapTo(1);
-            bs.current.snapTo(1);
+            backgroundColor: "#fff",
+            opacity: Animated.add(0.1, Animated.multiply(fall, 0.9)),
           }}
         >
-          <Animated.View
-            style={{
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              left: 0,
-              backgroundColor: "#fff",
-              height: 75,
-              opacity: Animated.sub(Animated.multiply(fall, 0.9), 0.1),
-            }}
-          />
-          <View
-            style={[
-              tw.shadowLg,
-              tw.flexRow,
-              tw.justifyCenter,
-              tw.itemsCenter,
-              tw.bgPurple700,
-              tw.pY2,
-              tw.rounded,
-              tw.m5,
-            ]}
-          >
-            <Ionicons
-              style={[tw.mR2]}
-              name="ios-share"
-              size={25}
-              color={color.purple200}
-            />
-            <Text style={[tw.textPurple100, tw.fontBold, tw.textBase, tw.pT1]}>
-              BAGIKAN
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </Animated.View>
+          <SafeAreaView>
+            <Button
+              icon="share-variant"
+              mode="contained"
+              labelStyle={[tw.textBase]}
+              style={[tw.mB2, tw.mX3]}
+              contentStyle={[tw.m1]}
+              theme={{ roundness: 5 }}
+              onPress={() => {
+                bs.current.snapTo(1);
+                bs.current.snapTo(1);
+              }}
+            >
+              Share
+            </Button>
+          </SafeAreaView>
+        </Animated.View>
+      </View>
     </>
   );
 }
