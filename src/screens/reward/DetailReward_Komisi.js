@@ -37,7 +37,7 @@ export default class MyComponent extends React.Component {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Nama Merchant - Nama Reward 2
+                Toko Buku Altera
               </Text>
               <View style={styles.chiprow}>
                 <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>

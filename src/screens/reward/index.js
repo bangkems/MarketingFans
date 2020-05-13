@@ -78,13 +78,13 @@ export default class Rewards extends React.Component {
               />
 
               <Card.Content>
-                <Text style={styles.titleCard}>Dapur Mama Bunda</Text>
+                <Text style={styles.titleCard}>1 Dus Indomie</Text>
                 <View style={styles.chiprow}>
                   <Chip
                     style={styles.chipHadiahLangsung}
                     textStyle={styles.chiptext}
                   >
-                    Hadiah 1 Dus Indomie
+                    Hadiah 
                   </Chip>
                 </View>
               </Card.Content>
