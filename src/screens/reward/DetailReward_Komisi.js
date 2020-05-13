@@ -16,11 +16,12 @@ export default class MyComponent extends React.Component {
       visible: false,
       noRekening: '006 251 698 2354',
       namaPemilik: 'Zain Muhammad',
-      nama_bank: this.props.navigation.state.params.JSON_ListView_Clicked_Item,
+      // nama_bank: this.props.navigation.state.params.JSON_ListView_Clicked_Item,
+      nama_bank: 'Bank BRI'
     };
   }
   render() {
-    const { navigate } = this.props.navigation;
+    // const { navigate } = this.props.navigation;
     return (
       <>
       <Header titleText="Detail Reward" />

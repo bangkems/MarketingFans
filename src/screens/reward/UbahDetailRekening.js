@@ -34,15 +34,15 @@ export default class MyComponent extends React.Component {
     };
   }
 
-  CekNamaBank = () => {
-    if (this.state.nama_bank != '') {
-      this.props.navigation.navigate('DetailReward_Komisi', {
-        JSON_ListView_Clicked_Item: this.state.nama_bank,
-      })
-    } else {
-      alert('Anda belum memasukkan nama bank');
-    }
-  }
+  // CekNamaBank = () => {
+  //   if (this.state.nama_bank != '') {
+  //     this.props.navigation.navigate('DetailReward_Komisi', {
+  //       JSON_ListView_Clicked_Item: this.state.nama_bank,
+  //     })
+  //   } else {
+  //     alert('Anda belum memasukkan nama bank');
+  //   }
+  // }
 
   _onToggleSnackBar = () => this.setState(state => ({ visible: !state.visible }));
 
@@ -92,8 +92,8 @@ export default class MyComponent extends React.Component {
             Detail Rekeningmu berhasil diperbarui!
           </Snackbar>
 
-          {/* <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button> */}
-          <Button style={styles.button} mode="contained" onPress={this.CekNamaBank}>Ubah Detail Pengiriman</Button>
+          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button>
+          {/* <Button style={styles.button} mode="contained" onPress={this.CekNamaBank}>Ubah Detail Pengiriman</Button> */}
 
         </View>
       </ScrollView>

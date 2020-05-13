@@ -58,7 +58,7 @@ export default class Rewards extends React.Component {
               <Text
                 style={styles.tombolLink}
                 onPress={() =>
-                  NavigationService.navigate("UbahDetailRekening")
+                  NavigationService.navigate("DetailReward_Komisi")
                   // NavigationService.navigate("DetailReward_Komisi")
                 }
               >
