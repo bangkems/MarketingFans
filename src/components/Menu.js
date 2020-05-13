@@ -46,6 +46,7 @@ export default class MyComponent extends React.Component {
           navigationState={this.state}
           onIndexChange={this._handleIndexChange}
           renderScene={this._renderScene}
+          sceneAnimationEnabled={false}
         />
       </>
     );

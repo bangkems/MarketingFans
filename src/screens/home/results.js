@@ -17,7 +17,6 @@ export default class results extends Component {
     return (
       <>
         <View style={[tw.mX4]}>
-          <View style={[tw.h6, tw.bgWhite, tw.opacity0]}></View>
           {this.showCategory()}
 
           <View style={[tw.mX2]}>
@@ -48,9 +47,13 @@ export default class results extends Component {
               </Chip>
             </View>
           </View>
-          <Offer></Offer>
-          <Offer></Offer>
-          <Offer></Offer>
+          <View style={[tw.itemsCenter]}>
+            <Offer></Offer>
+            <Offer></Offer>
+            <Offer></Offer>
+            <Offer></Offer>
+            <Offer></Offer>
+          </View>
         </View>
       </>
     );
@@ -66,7 +69,13 @@ export default class results extends Component {
       return (
         <>
           <View
-            style={[tw.h10, tw._mX4, tw.shadowMd, tw.borderB, tw.borderGray300]}
+            style={[
+              tw.h10,
+              tw._mX4,
+              tw.justifyCenter,
+              tw.borderB,
+              tw.borderGray300,
+            ]}
           >
             <TouchableOpacity
               style={[tw.flexRow, tw.itemsCenter, tw.mL6]}

@@ -19,8 +19,6 @@ import UbahKodeReferral from "../screens/referral/UbahKodeReferral";
 import Profile from "../screens/profile";
 import UpdateProfileFans from "../screens/profile/UpdateProfileFans";
 
-
-
 const StackNavigator = createStackNavigator(
   {
     IndexScreen: {
@@ -76,10 +74,10 @@ const StackNavigator = createStackNavigator(
     },
     UpdateProfileFans: {
       screen: UpdateProfileFans,
-    }
+    },
   },
   {
-    initialRouteName: "OnboardingFans",
+    initialRouteName: "IndexScreen",
     headerMode: "none",
     defaultNavigationOptions: {
       cardStyle: { backgroundColor: "#FFF" },

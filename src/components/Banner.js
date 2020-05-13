@@ -52,7 +52,7 @@ export default class MyComponents extends React.Component {
             {this.data.map((item, key) => (
               <TouchableOpacity
                 key={key}
-                style={[tw.itemsCenter, tw.mX2, tw.mT0, tw.mB3, tw.justifyEnd]}
+                style={[tw.itemsCenter, tw.m2, tw.justifyEnd]}
               >
                 <>
                   <IconButton

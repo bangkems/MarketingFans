@@ -10,10 +10,9 @@ function index({ navigation }) {
   return (
     <>
       <Header titleText="Penawaran tersedia" navigation={navigation}></Header>
-      <View style={[tw.h2, tw.bgWhite]} />
       <Banner></Banner>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={[tw.m5]}>
+        <View style={[tw.itemsCenter, tw.m4]}>
           <View
             style={!!tags ? [tw.flexRow, tw.flexWrap, tw.mY2] : [tw.hidden]}
           ></View>
