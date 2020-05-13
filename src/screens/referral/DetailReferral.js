@@ -17,7 +17,7 @@ function DetailReferral({ navigation }) {
           <Card.Cover
             source={{
               uri:
-                'https://images.financialexpress.com/2020/01/1-75.jpg',
+                'https://source.unsplash.com/collection/10017690/700x700',
             }}
           />
           <Card.Content>
@@ -35,11 +35,11 @@ function DetailReferral({ navigation }) {
           <Card.Cover
             source={{
               uri:
-                'https://cdn.grabon.in/gograbon/images/web-images/uploads/1563948052223/Friendship-day-offers.jpg',
+                'https://source.unsplash.com/nGrfKmtwv24/700x700',
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Nama Offer 2</Text>
+            <Text style={styles.titleCard}>Toko Buku Altera</Text>
             <Text style={styles.dateCard}>10 Jan 2020 - 10 Feb 2020</Text>
             <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
           </Card.Content>
@@ -53,7 +53,7 @@ function DetailReferral({ navigation }) {
           <Card.Cover
             source={{
               uri:
-                'https://images.freekaamaal.com/post_images/1576047645.png',
+                'https://source.unsplash.com/-YHSwy6uqvk/700x700',
             }}
           />
           <Card.Content>
