@@ -14,7 +14,34 @@ import NavigationService from "../../navigation/NavigationService";
 import { FontAwesome5, Entypo } from "@expo/vector-icons";
 
 export class landing extends Component {
-  render() {
+  constructor() {
+    super();
+    this.data = [
+      {
+        title: "Ripped Jeans Co",
+        image: "https://source.unsplash.com/collection/10017690/700x700",
+        category: "Fashion",
+        reward: "Rp 35.000",
+        condition: "per Sale",
+      },
+      {
+        title: "Toko Buku Altera",
+        image: "https://source.unsplash.com/nGrfKmtwv24/700x700",
+        category: "Stationary",
+        reward: "Rp 100.000",
+        condition: "per 10 Sale",
+      },
+      {
+        title: "Dapur Mama Bunda",
+        image: "https://source.unsplash.com/-YHSwy6uqvk/700x700",
+        category: "Food",
+        reward: "Komisi 2%",
+        condition: "dari tiap transaksi",
+      },
+    ];
+  }
+
+  miniStat() {
     return (
       <>
         <View style={[tw.bgWhite]}>
@@ -56,11 +83,19 @@ export class landing extends Component {
             </Card.Content>
           </Card>
         </View>
+      </>
+    );
+  }
+
+  render() {
+    return (
+      <>
+        {this.miniStat()}
         <View style={[tw.mB3, tw.mX2]}>
           <View style={[tw.flex, tw.flexRow, tw.mY5]}>
             <View style={[tw.m1, tw.flexGrow, tw.itemsCenter]}>
               <Image
-                style={[{ width: 50, height: 50 }]}
+                style={[styles.icon]}
                 source={{
                   uri: "https://img.icons8.com/color/48/000000/tent.png",
                 }}
@@ -69,7 +104,7 @@ export class landing extends Component {
             </View>
             <View style={[tw.m1, tw.flexGrow, tw.itemsCenter]}>
               <Image
-                style={[{ width: 50, height: 50 }]}
+                style={[styles.icon]}
                 source={{
                   uri: "https://img.icons8.com/color/96/000000/doughnut.png",
                 }}
@@ -78,7 +113,7 @@ export class landing extends Component {
             </View>
             <View style={[tw.m1, tw.flexGrow, tw.itemsCenter]}>
               <Image
-                style={[{ width: 50, height: 50 }]}
+                style={[styles.icon]}
                 source={{
                   uri:
                     "https://img.icons8.com/color/96/000000/red-felt-hat.png",
@@ -109,14 +144,19 @@ export class landing extends Component {
               Penawaran terbaru
             </Text>
             <View style={[tw.itemsCenter]}>
-              <Offer></Offer>
-              <Offer></Offer>
-              <Offer></Offer>
-              <Offer></Offer>
-              <Offer></Offer>
+              {this.data.map((item, key) => (
+                <Offer
+                  key={key}
+                  title={item.title}
+                  image={item.image}
+                  category={item.category}
+                  reward={item.reward}
+                  condition={item.condition}
+                />
+              ))}
             </View>
             <Text style={[tw.mY2, tw.textCenter, tw.textGray600]}>
-              Untuk saat ini segitu dulu ya
+              Mentok boi, sudahlah
             </Text>
           </View>
         </View>
@@ -127,7 +167,8 @@ export class landing extends Component {
 
 const styles = StyleSheet.create({
   icon: {
-    padding: 5,
+    width: 50,
+    height: 50,
   },
 });
 
