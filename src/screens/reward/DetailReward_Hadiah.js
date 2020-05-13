@@ -25,7 +25,7 @@ function DetailReward_Hadiah({ navigation }) {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Nama Merchant - Nama Reward 3
+                Dapur Mama Bunda
               </Text>
               <View style={styles.chiprow}>
                 <Chip style={styles.chipHadiah} textStyle={styles.chiptext}>

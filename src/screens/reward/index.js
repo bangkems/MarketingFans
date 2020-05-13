@@ -21,10 +21,10 @@ export default class Rewards extends React.Component {
               />
 
               <Card.Content>
-                <Text style={styles.titleCard}>Nama Reward 1</Text>
+                <Text style={styles.titleCard}>1 Buah Powerbank</Text>
                 <View style={styles.chiprow}>
                   <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
-                    Undian
+                    Undian 21 April 2020
                   </Chip>
                 </View>
               </Card.Content>
@@ -48,17 +48,18 @@ export default class Rewards extends React.Component {
               />
 
               <Card.Content>
-                <Text style={styles.titleCard}>Nama Reward 2</Text>
+                <Text style={styles.titleCard}>Rp. 320.596</Text>
                 <View style={styles.chiprow}>
                   <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>
-                    Komisi
+                    Komisi 10%
                   </Chip>
                 </View>
               </Card.Content>
               <Text
                 style={styles.tombolLink}
                 onPress={() =>
-                  NavigationService.navigate("DetailReward_Komisi")
+                  NavigationService.navigate("UbahDetailRekening")
+                  // NavigationService.navigate("DetailReward_Komisi")
                 }
               >
                 Detail
@@ -77,13 +78,13 @@ export default class Rewards extends React.Component {
               />
 
               <Card.Content>
-                <Text style={styles.titleCard}>Nama Reward 3</Text>
+                <Text style={styles.titleCard}>Dapur Mama Bunda</Text>
                 <View style={styles.chiprow}>
                   <Chip
                     style={styles.chipHadiahLangsung}
                     textStyle={styles.chiptext}
                   >
-                    Hadiah Langsung
+                    Hadiah 1 Dus Indomie
                   </Chip>
                 </View>
               </Card.Content>
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
   titleCard: {
     fontSize: 18,
     marginRight: 5,
-    marginLeft: 50,
+    marginLeft: 45,
     marginBottom: 0,
     marginTop: 15,
     paddingHorizontal: 35,

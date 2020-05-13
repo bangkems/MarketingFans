@@ -22,7 +22,7 @@ function DetailReward({ navigation }) {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Nama Merchant - Nama Reward 1
+                Ripped Jeans Company
               </Text>
               <View style={styles.chiprow}>
                 <Chip style={styles.chipUndian} textStyle={styles.chiptext}>

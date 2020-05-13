@@ -21,9 +21,9 @@ function DetailReferral({ navigation }) {
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Nama Offer 1</Text>
+            <Text style={styles.titleCard}>Ripped Jeans Company</Text>
             <Text style={styles.dateCard}>21 Jan 2020 - 21 Jun 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 4 Referral rate{"\n"}- 8 Klaim dari pengguna</Text>
+            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
           </Card.Content>
           <View style={styles.status}>
             <Chip style={styles.chipActive} textStyle={styles.chiptext}>Aktif</Chip>
@@ -41,7 +41,7 @@ function DetailReferral({ navigation }) {
           <Card.Content>
             <Text style={styles.titleCard}>Nama Offer 2</Text>
             <Text style={styles.dateCard}>10 Jan 2020 - 10 Feb 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 4 Referral rate{"\n"}- 8 Klaim dari pengguna</Text>
+            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
           </Card.Content>
           <View style={styles.status}>
             <Chip style={styles.chipInactive} textStyle={styles.chiptext}>Tidak Aktif</Chip>
@@ -57,9 +57,9 @@ function DetailReferral({ navigation }) {
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Nama Offer 3</Text>
+            <Text style={styles.titleCard}>Dapur Mama Bunda</Text>
             <Text style={styles.dateCard}>13 Des 2019 - 13 Jan 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 4 Referral rate{"\n"}- 8 Klaim dari pengguna</Text>
+            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
           </Card.Content>
           <View style={styles.status}>
             <Chip style={styles.chipInactive} textStyle={styles.chiptext}>Tidak Aktif</Chip>

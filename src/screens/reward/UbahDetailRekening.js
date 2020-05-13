@@ -4,33 +4,43 @@ import { Text, Button, TextInput, Appbar, Snackbar } from 'react-native-paper'
 //import DatePicker from the package we installed
 
 // add the following statement
-// import Header from '../components/Header'
+import Header from "../../components/Header";
 
-function UbahDetailRekening({ navigation }) {
-  return (
-    <>
-      <Appbar.Header>
-          <Appbar.BackAction
-            onPress={() => navigation.navigate('DetailReward_Komisi')}
-          />
-          <Appbar.Content
-            title="Ubah Detail Rekening"
-          />
-      </Appbar.Header>
-      <MyComponent />
+// function UbahDetailRekening({ navigation }) {
+//   return (
+//     <>
+//       <Appbar.Header>
+//           <Appbar.BackAction
+//             onPress={() => navigation.navigate('DetailReward_Komisi')}
+//           />
+//           <Appbar.Content
+//             title="Ubah Detail Rekening"
+//           />
+//       </Appbar.Header>
+//       <MyComponent />
         
-    </>
-  );
-}
-class MyComponent extends React.Component {
+//     </>
+//   );
+// }
+export default class MyComponent extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     //set value in state for initial date
     this.state = {
       visible: false,
-      namaBank: 'PT. Bank Jaya Sentosa',
+      nama_bank: 'Bank BRI',
       noRekening: '006 251 698 2354',
       namaPemilik: 'Zain Muhammad',
+    };
+  }
+
+  CekNamaBank = () => {
+    if (this.state.nama_bank != '') {
+      this.props.navigation.navigate('DetailReward_Komisi', {
+        JSON_ListView_Clicked_Item: this.state.nama_bank,
+      })
+    } else {
+      alert('Anda belum memasukkan nama bank');
     }
   }
 
@@ -40,16 +50,17 @@ class MyComponent extends React.Component {
 
   render() {
     const { visible } = this.state;
-
     return (
+      <>
+      <Header titleText="Ubah Detail Rekening" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
 
           <Text style={styles.fieldTitle}>Nama Bank</Text>
             <TextInput
               // label='Nama Lengkap'
-              value={this.state.namaBank}
-              onChangeText={namaBank => this.setState({ namaBank })}
+              value={this.state.nama_bank}
+              onChangeText={nama_bank => this.setState({ nama_bank })}
               style={styles.textInput}
             />
 
@@ -81,11 +92,13 @@ class MyComponent extends React.Component {
             Detail Rekeningmu berhasil diperbarui!
           </Snackbar>
 
-          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button>
+          {/* <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button> */}
+          <Button style={styles.button} mode="contained" onPress={this.CekNamaBank}>Ubah Detail Pengiriman</Button>
 
         </View>
       </ScrollView>
-    );
+      </>
+    )
   }
 }
 
@@ -126,6 +139,4 @@ const styles = StyleSheet.create({
       backgroundColor: '#57B258'
     }
   })
-
-  export default UbahDetailRekening
 

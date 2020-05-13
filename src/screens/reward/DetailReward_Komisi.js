@@ -2,17 +2,28 @@ import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
+import NavigationService from "../../navigation/NavigationService";
+
 
 // add the following statement
-// import Header from '../components/HeaderBack'
+// import Header from '../components/Header'
 
-function DetailReward_Komisi({ navigation }) {
-  const namaBank = "PT. Bank Jaya Sentosa";
-  const noRekening = "006 251 698 2354";
-  const namaPemilik = "Zain Muhammad";
-  return (
-    <>
-      <Header titleText="Detail Reward" navigation={navigation} />
+export default class MyComponent extends React.Component {
+  constructor(props){
+    super(props);
+    //set value in state for initial date
+    this.state = {
+      visible: false,
+      noRekening: '006 251 698 2354',
+      namaPemilik: 'Zain Muhammad',
+      nama_bank: this.props.navigation.state.params.JSON_ListView_Clicked_Item,
+    };
+  }
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <>
+      <Header titleText="Detail Reward" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           {/* satu card */}
@@ -58,24 +69,30 @@ function DetailReward_Komisi({ navigation }) {
             <Text style={styles.titlePengiriman}>Detail Rekening</Text>
             <Divider style={styles.divider} />
             <Text style={styles.descPengiriman}>
-              {namaBank}
+              {this.state.nama_bank}
               {"\n"}
-              {noRekening}
+              {this.state.noRekening}
               {"\n"}
-              {namaPemilik}
+              {this.state.namaPemilik}
             </Text>
             <Button
               style={styles.button}
               mode="contained"
-              onPress={() => navigation.navigate("UbahDetailRekening")}
+              onPress={() => NavigationService.navigate("UbahDetailRekening")}
             >
               Ubah Detail Rekening
             </Button>
+
+            {/* <Text 
+          style={styles.tombolLink} 
+          onPress={()=>navigate('UbahDetailRekening', {JSON_ListView_Clicked_Item: this.state.nama_bank})}>Testing Nama Bank</Text> */}
+
           </Card>
         </View>
       </ScrollView>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -202,5 +219,3 @@ const styles = StyleSheet.create({
     // backgroundColor: '#0055a5'
   },
 });
-
-export default DetailReward_Komisi;

@@ -22,25 +22,20 @@ export default class Referral extends React.Component {
               <Caption>Jumlah Referrral</Caption>
             </Surface>
             <Surface style={styles.surface}>
-              <Headline style={styles.headline}>13.0</Headline>
-              <Caption>Referral Rate</Caption>
-            </Surface>
-          </View>
-          <View style={styles.surfaceFlex}>
-            <Surface style={styles.surface}>
               <Headline style={styles.headline}>28</Headline>
               <Caption>Total Reward</Caption>
             </Surface>
+          </View>
+          <View style={styles.surfaceFlex}>
             <Surface style={styles.surface}>
               <Headline style={styles.headline}>12</Headline>
               <Caption>Klaim Pelanggan</Caption>
             </Surface>
           </View>
           <Text style={styles.tombolLink} onPress={() =>
-                  NavigationService.navigate("DetailReferral")
-                }
-              >
-                Detail Referral</Text>
+              NavigationService.navigate("DetailReferral")
+              }
+          >Detail Referral</Text>
 
           <Divider style={styles.divider}/>
 
@@ -88,11 +83,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginBottom: 20,
     padding: 8,
-    height: 150,
+    height: 100,
     width: 150,
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 5,
+    elevation: 2,
   },
   headline: {
     fontSize: 30,
