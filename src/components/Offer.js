@@ -1,24 +1,11 @@
-import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ImageBackground,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
-import {
-  Card,
-  Button,
-  Title,
-  Subheading,
-  TouchableRipple,
-  Caption,
-} from "react-native-paper";
-import { color, tw, t } from "react-native-tailwindcss";
+import React from "react";
+import { Text, View, ImageBackground, StyleSheet } from "react-native";
+import { TouchableRipple } from "react-native-paper";
+import { color, tw } from "react-native-tailwindcss";
 import NavigationService from "../navigation/NavigationService";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-function Offer({ title, image, category, reward, condition }) {
+function Offer({ merchant, title, image, category, reward, condition }) {
   return (
     <>
       <View style={[tw.m3, tw.wFull]}>
@@ -36,14 +23,14 @@ function Offer({ title, image, category, reward, condition }) {
                 height: 200,
                 justifyContent: "space-between",
                 ...tw.shadowMd,
-                ...tw.p2,
+                ...tw.p3,
               }}
               imageStyle={[tw.rounded]}
               source={{
                 uri: image,
               }}
             >
-              <View style={[tw.flexWrap, tw.z10]}>
+              <View style={[tw.flexRow, tw.justifyBetween, tw.z10]}>
                 <View
                   style={[
                     tw.flexRow,
@@ -62,14 +49,19 @@ function Offer({ title, image, category, reward, condition }) {
                 </View>
               </View>
               <View style={[styles.card]}>
-                <Text style={[tw.textWhite, tw.fontBold, tw.textXl, tw.w1_2]}>
-                  {title}
-                </Text>
+                <View style={[tw.w1_2]}>
+                  <Text style={[tw.textWhite, tw.mT1, tw.textXs]}>
+                    {merchant}
+                  </Text>
+                  <Text style={[tw.textWhite, tw.fontMedium, tw.textLg]}>
+                    {title}
+                  </Text>
+                </View>
                 <View style={[tw.itemsEnd]}>
-                  <Text style={[tw.textWhite, tw.textBase, tw.fontSemibold]}>
+                  <Text style={[tw.textWhite, tw.textXl, tw.fontBold]}>
                     {reward}
                   </Text>
-                  <Text style={[tw.textWhite, tw.textXs]}>{condition}</Text>
+                  <Text style={[tw.textWhite]}>{condition}</Text>
                 </View>
               </View>
               <View style={styles.overlay} />
@@ -86,14 +78,14 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     ...tw.flexRow,
     ...tw.justifyBetween,
-    ...tw.itemsCenter,
+    ...tw.itemsEnd,
     zIndex: 30,
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 1,
     borderRadius: 4,
-    backgroundColor: "rgba(0,0,0, 0.2)",
+    backgroundColor: "rgba(0,0,0, 0.4)",
   },
 });
 

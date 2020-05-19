@@ -18,21 +18,24 @@ export class landing extends Component {
     super();
     this.data = [
       {
-        title: "Ripped Jeans Co",
+        merchant: "Ripped Jeans Co",
+        title: "Discount all item up to 20%",
         image: "https://source.unsplash.com/collection/10017690/700x700",
         category: "Fashion",
         reward: "Rp 35.000",
         condition: "per Sale",
       },
       {
-        title: "Toko Buku Altera",
+        merchant: "Toko Buku Altera",
+        title: "Beli 1 Dapat 1 Novel Fiksi",
         image: "https://source.unsplash.com/nGrfKmtwv24/700x700",
         category: "Stationary",
         reward: "Rp 100.000",
         condition: "per 10 Sale",
       },
       {
-        title: "Dapur Mama Bunda",
+        merchant: "Dapur Mama Bunda",
+        title: "Diskon 50% produk sayuran",
         image: "https://source.unsplash.com/-YHSwy6uqvk/700x700",
         category: "Food",
         reward: "Komisi 2%",
@@ -147,6 +150,7 @@ export class landing extends Component {
               {this.data.map((item, key) => (
                 <Offer
                   key={key}
+                  merchant={item.merchant}
                   title={item.title}
                   image={item.image}
                   category={item.category}
