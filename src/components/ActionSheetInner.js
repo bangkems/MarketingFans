@@ -1,17 +1,93 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { tw, color } from "react-native-tailwindcss";
-import { Ionicons } from "@expo/vector-icons";
+import { Entypo, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-function ActionSheetInner({ title }) {
+function ActionSheetInner({
+  merchant,
+  title,
+  terms,
+  code,
+  reward,
+  condition,
+  link,
+  exp,
+}) {
   return (
-    <View style={[styles.panel, tw.pX6, tw.pT2]}>
+    <View style={[styles.panel, tw.pX4, tw.pT2]}>
       <View>
-        <Text style={[tw.text2xl, tw.fontMedium, tw.textGray900]}>{title}</Text>
-        <Text style={[tw.textGray600]}>Berikan kupon serta ulasanmu</Text>
+        <Text style={[tw.textGray600]}>{merchant}</Text>
+        <Text style={[tw.textXl, tw.fontBold, tw.textGray800]}>{title}</Text>
+      </View>
+
+      <View style={[tw._mX4, tw.mT3, tw.mB2, tw.borderT, tw.borderGray200]} />
+
+      <View style={[]}>
+        <View style={[tw.flexRow, tw.itemsCenter, tw.pY3]}>
+          <Entypo
+            name="hour-glass"
+            size={23}
+            color={color.gray700}
+            style={[tw.pR6]}
+          />
+          <View>
+            <Text style={[tw.textXs, tw.textGray600, tw.mR2]}>
+              Berlaku s.d.
+            </Text>
+            <Text style={[tw.textBase, tw.fontMedium, tw.textGray700, tw.mR2]}>
+              {exp}
+            </Text>
+          </View>
+        </View>
+        <View style={[tw.flexRow, tw.itemsCenter, tw.pY3]}>
+          <Entypo
+            name="credit-card"
+            size={23}
+            color={color.gray700}
+            style={[tw.pR6]}
+          />
+          <View style={[]}>
+            <Text style={[tw.textBase, tw.fontMedium, tw.textGray700, tw.mR1]}>
+              {reward}
+            </Text>
+            <Text style={[tw.textXs, tw.textGray600, tw.mR2]}>{condition}</Text>
+          </View>
+        </View>
+        <View style={[tw.flexRow, tw.itemsCenter, tw.pY3]}>
+          <Entypo
+            name="link"
+            size={23}
+            color={color.gray700}
+            style={[tw.pR6]}
+          />
+          <Text style={[tw.textBase, tw.underline, tw.textGray700, tw.mR1]}>
+            {link}
+          </Text>
+        </View>
+      </View>
+
+      <View style={[tw._mX4, tw.mY2, tw.borderT, tw.borderGray100]} />
+
+      <View style={[tw.pT3, tw.flexRow, tw.itemsCenter, tw.justifyBetween]}>
+        <Text style={[tw.fontBold, tw.textGray800]}>Kode Voucher:</Text>
+
+        <View style={[tw.flexRow, tw.justifyCenter, tw.bgGray400, tw.rounded]}>
+          <Text style={[tw.textBase, tw.fontBold, tw.textPurple800, tw.p2]}>
+            {code}
+          </Text>
+        </View>
+      </View>
+
+      <View style={[tw.pT3]}>
+        <Text style={[tw.fontBold, tw.textGray800]}>Syarat dan ketentuan:</Text>
+        <Text style={[tw.mT2, tw.textGray600]}>{terms}</Text>
+      </View>
+
+      <View style={[tw.mT5, tw._mX4]}>
+        <View style={[tw.borderT, tw.borderGray100]} />
         <ScrollView
-          style={[tw.mY6, tw._mX6]}
+          style={[tw.mY5]}
           horizontal
           showsHorizontalScrollIndicator={false}
         >
@@ -19,7 +95,7 @@ function ActionSheetInner({ title }) {
           <View style={[tw.mR6, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
-              onPress={() => console.log("copy pressed")}
+              onPress={() => console.log("download pressed")}
             >
               <View
                 style={{
@@ -31,13 +107,13 @@ function ActionSheetInner({ title }) {
                   backgroundColor: "#fff",
                 }}
               >
-                <Ionicons name="ios-copy" size={35} color={color.gray700} />
+                <Ionicons name="ios-download" size={35} color={color.gray700} />
               </View>
             </TouchableOpacity>
 
-            <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Copy</Text>
+            <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Download</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("instagram pressed")}
@@ -52,7 +128,7 @@ function ActionSheetInner({ title }) {
             </TouchableOpacity>
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Instagram</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("whatsapp pressed")}
@@ -67,7 +143,7 @@ function ActionSheetInner({ title }) {
             </TouchableOpacity>
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Whatsapp</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("twitter pressed")}
@@ -82,7 +158,7 @@ function ActionSheetInner({ title }) {
             </TouchableOpacity>
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Twitter</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("telegram pressed")}
@@ -97,7 +173,7 @@ function ActionSheetInner({ title }) {
             </TouchableOpacity>
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Telegram</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("facebook pressed")}
@@ -112,7 +188,7 @@ function ActionSheetInner({ title }) {
             </TouchableOpacity>
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Facebook</Text>
           </View>
-          <View style={[tw.mR6, tw.itemsCenter]}>
+          <View style={[tw.mR5, tw.itemsCenter]}>
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => console.log("messenger pressed")}
@@ -128,13 +204,6 @@ function ActionSheetInner({ title }) {
             <Text style={[tw.mT2, tw.textGray800, tw.textXs]}>Messenger</Text>
           </View>
         </ScrollView>
-      </View>
-      <View style={[tw.pY5, tw.borderT, tw.borderGray400]}>
-        <Text style={[tw.fontBold, tw.textGray800]}>Pro tip:</Text>
-        <Text style={[tw.mT2, tw.textGray800]}>
-          Kenali lebih dalam mengenai produk yang ingin kamu pasarkan, kamu juga
-          bisa mengontak pemilik untuk meminta tester
-        </Text>
       </View>
     </View>
   );
@@ -159,10 +228,8 @@ const styles = StyleSheet.create({
     right: 0,
   },
   panel: {
-    height: 305,
+    height: "150%",
     backgroundColor: "#ffffff",
-    marginLeft: 10,
-    marginRight: 10,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },

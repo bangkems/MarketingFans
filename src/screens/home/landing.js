@@ -34,7 +34,16 @@ export class landing extends Component {
     };
     this.state = {
       overlay: false,
-      text: "EDF19P3",
+      merchant: "",
+      title: "",
+      image: "",
+      category: "",
+      reward: "",
+      condition: "",
+      terms: "",
+      code: "",
+      exp: "",
+      link: "",
     };
     this.data = [
       {
@@ -43,7 +52,15 @@ export class landing extends Component {
         image: "https://source.unsplash.com/collection/10017690/700x700",
         category: "Fashion",
         reward: "Rp 35.000",
-        condition: "per Sale",
+        condition: "tiap penjualan",
+        terms: [
+          "1. Benefit berupa uang tunai Rp100.000 untuk setiap 10 buku yang terjual menggunakan voucher yang Anda bagikan ",
+          "\n2. Tambahan 2% bagi pemilik Altera Loyal Card",
+          "\n3. Masa berlaku campaign sampai tanggal 20 Juli 2020",
+        ],
+        code: "RPJCO2020",
+        exp: "20 Juli 2020",
+        link: "https://instagram.com/rippedjeans",
       },
       {
         merchant: "Toko Buku Altera",
@@ -51,7 +68,15 @@ export class landing extends Component {
         image: "https://source.unsplash.com/nGrfKmtwv24/700x700",
         category: "Stationary",
         reward: "Rp 100.000",
-        condition: "per 10 Sale",
+        condition: "tiap 10 penjualan",
+        terms: [
+          "1. Benefit berupa uang tunai Rp100.000 untuk setiap 10 buku yang terjual menggunakan voucher yang Anda bagikan ",
+          "\n2. Tambahan 2% bagi pemilik Altera Loyal Card",
+          "\n3. Masa berlaku campaign sampai tanggal 20 Juli 2020",
+        ],
+        code: "ALTBG2020",
+        exp: "20 Juli 2020",
+        link: "https://instagram.com/alteramalangstore",
       },
       {
         merchant: "Dapur Mama Bunda",
@@ -60,6 +85,14 @@ export class landing extends Component {
         category: "Food",
         reward: "Komisi 2%",
         condition: "dari tiap transaksi",
+        terms: [
+          "1. Benefit berupa komisi sebesar 2% bagi influencer dari setiap orang yang membeli",
+          "\n2. Influencer berada di area Surabaya",
+          "\n3. Masa berlaku campaign sampai tanggal 20 Juli 2020",
+        ],
+        code: "ABC20F9",
+        exp: "20 Juli 2020",
+        link: "https://instagram.com/dapurmamasby",
       },
     ];
   }
@@ -125,17 +158,30 @@ export class landing extends Component {
               style={[
                 this.state.overlay ? "" : tw.hidden,
                 {
+                  ...tw.bgGray900,
                   height: "100%",
-                  backgroundColor: "#000",
-                  opacity: Animated.add(0.8, Animated.multiply(this.fall, -1)),
+                  opacity: Animated.add(1, Animated.multiply(this.fall, -1)),
                 },
               ]}
             ></Animated.View>
           </TouchableWithoutFeedback>
           <BottomSheet
             ref={this.bs}
-            snapPoints={[-100, 220, 360]}
-            renderContent={() => <ActionSheetInner title={this.state.text} />}
+            snapPoints={[0, "51%", "95%"]}
+            renderContent={() => (
+              <ActionSheetInner
+                merchant={this.state.merchant}
+                title={this.state.title}
+                image={this.state.image}
+                category={this.state.category}
+                terms={this.state.terms}
+                code={this.state.code}
+                reward={this.state.reward}
+                condition={this.state.condition}
+                exp={this.state.exp}
+                link={this.state.link}
+              />
+            )}
             renderHeader={() => <ActionSheetHeader />}
             callbackNode={this.fall}
             initialSnap={0}
@@ -202,7 +248,14 @@ export class landing extends Component {
                   onPress={() => {
                     this.setState({
                       overlay: true,
-                      text: item.title,
+                      merchant: item.merchant,
+                      title: item.title,
+                      terms: item.terms,
+                      code: item.code,
+                      reward: item.reward,
+                      condition: item.condition,
+                      exp: item.exp,
+                      link: item.link,
                     });
                     this.bs.current.snapTo(1);
                     this.bs.current.snapTo(1);

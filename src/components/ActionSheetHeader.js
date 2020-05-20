@@ -18,9 +18,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#ffffff",
     shadowColor: "#000000",
-    paddingTop: 20,
-    marginLeft: 10,
-    marginRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
   },
@@ -28,8 +27,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   panelHandle: {
-    width: 50,
-    height: 8,
+    width: 60,
+    height: 6,
     borderRadius: 4,
     backgroundColor: "#00000030",
     marginBottom: 6,
