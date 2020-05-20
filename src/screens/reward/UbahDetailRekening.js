@@ -4,7 +4,7 @@ import { Text, Button, TextInput, Appbar, Snackbar } from 'react-native-paper'
 //import DatePicker from the package we installed
 
 // add the following statement
-import Header from "../../components/Header";
+import Header from "../../components/HeaderBack";
 
 // function UbahDetailRekening({ navigation }) {
 //   return (

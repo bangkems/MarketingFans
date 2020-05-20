@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
 import { Text, Card, Chip } from 'react-native-paper'
-import Header from "../../components/Header";
+import Header from "../../components/HeaderBack";
 import { color } from "react-native-tailwindcss";
 
 

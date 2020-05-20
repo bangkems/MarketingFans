@@ -4,7 +4,7 @@ import { Text, Button, TextInput, Snackbar, HelperText, RadioButton, IconButton 
 import DateTimePickerModal from "react-native-modal-datetime-picker"
 import moment from 'moment'
 import 'moment/locale/id'
-import Header from "../../components/Header";
+import Header from "../../components/HeaderBack";
 import { color } from "react-native-tailwindcss";
 
 function Kalendar() {

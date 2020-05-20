@@ -1,13 +1,14 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Appbar, Title } from 'react-native-paper'
+import NavigationService from "../navigation/NavigationService";
 
 function HeaderBack({ titleText, backButton }) {
 
     return (
       <Appbar.Header style={styles.headerContainer}>
         <Appbar.BackAction
-          onPress={ backButton }
+          onPress={() => NavigationService.back()}
         />
         <Appbar.Content
           title={ titleText }
@@ -17,9 +18,6 @@ function HeaderBack({ titleText, backButton }) {
   }
   
   const styles = StyleSheet.create({
-    headerContainer: {
-      backgroundColor: '#2980b9'
-    },
     title: {
       color: '#FFF'
     }

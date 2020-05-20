@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
-import Header from "../../components/Header";
+import Header from "../../components/HeaderBack";
 import NavigationService from "../../navigation/NavigationService";
 import { color } from "react-native-tailwindcss";
 import { FontAwesome5 } from '@expo/vector-icons';
