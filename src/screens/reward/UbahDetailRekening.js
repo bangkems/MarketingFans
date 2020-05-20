@@ -52,7 +52,7 @@ export default class MyComponent extends React.Component {
     const { visible } = this.state;
     return (
       <>
-      <Header titleText="Ubah Detail Rekening" />
+      <Header titleText="Detail Rekening" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
 

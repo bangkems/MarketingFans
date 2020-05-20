@@ -82,7 +82,7 @@ export default class App extends Component {
     return (
         <>
     
-        <Header titleText="Ubah Profil Fans" />
+        <Header titleText="Profil Fans" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
 
@@ -135,7 +135,7 @@ export default class App extends Component {
 
           
 
-          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Profil</Button>
+          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Perbarui Profil</Button>
 
           <Snackbar
             style={styles.snackbar}

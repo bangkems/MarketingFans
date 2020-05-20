@@ -27,7 +27,7 @@ export default class MyComponent extends React.Component {
 
     return (
       <>
-      <Header titleText="Ubah Detail Pengiriman" />
+      <Header titleText="Detail Pengiriman" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
 
