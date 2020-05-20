@@ -59,6 +59,7 @@ export default class MyComponent extends React.Component {
           <Text style={styles.fieldTitle}>Nama Bank</Text>
             <TextInput
               // label='Nama Lengkap'
+              mode="outlined"
               value={this.state.nama_bank}
               onChangeText={nama_bank => this.setState({ nama_bank })}
               style={styles.textInput}
@@ -66,13 +67,16 @@ export default class MyComponent extends React.Component {
 
             <Text style={styles.fieldTitle}>Nomor Rekening</Text>
             <TextInput
+              mode="outlined"
               value={this.state.noRekening}
               onChangeText={noRekening => this.setState({ noRekening })}
               style={styles.textInput}
+              keyboardType="numeric"
             />
             
             <Text style={styles.fieldTitle}>Nama Lengkap Pemilik</Text>
             <TextInput
+              mode="outlined"
               value={this.state.namaPemilik}
               onChangeText={namaPemilik => this.setState({ namaPemilik })}
               style={styles.textInput}
@@ -92,7 +96,7 @@ export default class MyComponent extends React.Component {
             Detail Rekeningmu berhasil diperbarui!
           </Snackbar>
 
-          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button>
+          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Perbarui Detail Rekening</Button>
           {/* <Button style={styles.button} mode="contained" onPress={this.CekNamaBank}>Ubah Detail Pengiriman</Button> */}
 
         </View>
@@ -123,7 +127,8 @@ const styles = StyleSheet.create({
     textInput: {
       margin: 20,
       marginTop: 10,
-      marginBottom: 10
+      marginBottom: 10,
+      backgroundColor: '#fff',
     },
     button: {
       margin: 20,

@@ -3,6 +3,8 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
 import NavigationService from "../../navigation/NavigationService";
+import { color } from "react-native-tailwindcss";
+
 
 
 // add the following statement
@@ -37,37 +39,35 @@ export default class MyComponent extends React.Component {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Toko Buku Altera
+                Rp 28.000 - Ripped Jeans Company
               </Text>
               <View style={styles.chiprow}>
-                <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>
-                  Komisi
+                <Chip mode="outlined" style={styles.chipKomisi} textStyle={styles.chiptext}>
+                  Komisi 10%
                 </Chip>
               </View>
-              <Text style={styles.descCardKeterangan}>
-                Komisi 10% dari penawaran X yang telah kamu bagikan
-              </Text>
-              <Text style={styles.title}>Syarat & Ketentuan</Text>
+              <Text style={styles.title}>Keterangan</Text>
               <Text style={styles.descCard}>
-                - Dana akan dikirim ke nomor rekening yang kamu masukkan{"\n"}-
-                Pastikan nomor rekening yang kamu masukkan benar{"\n"}- Pihak
-                merchant tidak bertanggung jawab atas kesalahan nomor rekening
+                - Komisi 10% dari penawaran yang telah kamu bagikan{"\n"}-
+                Dana akan dikirim ke nomor rekening yang kamu masukkan{"\n"}- Pastikan nomor rekening yang kamu masukkan benar
               </Text>
 
               <Divider style={styles.divider} />
 
-              <Card style={styles.cardNotifikasi}>
                 <Text style={styles.descCardNotifikasi}>
-                  Selamat! Kamu memperoleh komisi 10% sejumlah Rp. 320.596 dari
+                  Selamat! Kamu memperoleh komisi 10% sejumlah Rp 28.000 dari
                   penawaran ini
                 </Text>
-              </Card>
+
             </Card.Content>
             {/* <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('MyRewards')}>Klaim Hadiah</Button> */}
           </Card>
 
           <Card style={styles.cardKeterangan}>
-            <Text style={styles.titlePengiriman}>Detail Rekening</Text>
+            <View style={styles.infoRow}>
+              <Text style={styles.titlePengiriman}>Detail Rekening</Text>
+              <Text style={styles.btnUbahInfo} onPress={() => NavigationService.navigate("UbahDetailRekening")}>Ubah</Text>
+            </View>
             <Divider style={styles.divider} />
             <Text style={styles.descPengiriman}>
               {this.state.nama_bank}
@@ -76,13 +76,6 @@ export default class MyComponent extends React.Component {
               {"\n"}
               {this.state.namaPemilik}
             </Text>
-            <Button
-              style={styles.button}
-              mode="contained"
-              onPress={() => NavigationService.navigate("UbahDetailRekening")}
-            >
-              Ubah Detail Rekening
-            </Button>
 
             {/* <Text 
           style={styles.tombolLink} 
@@ -120,22 +113,11 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 8
     margin: 15,
   },
-  cardNotifikasi: {
-    justifyContent: "center",
-    // paddingHorizontal: 8
-    margin: 5,
-    marginBottom: 20,
-    backgroundColor: "#70F864",
-  },
-  descCardKeterangan: {
-    fontSize: 14,
-    margin: 5,
-    textAlign: "center",
-    alignSelf: "stretch",
-  },
   descCardNotifikasi: {
-    fontSize: 16,
+    fontSize: 14,
+    fontStyle: "italic",
     fontWeight: "bold",
+    color: color.purple800,
     margin: 5,
     textAlign: "center",
     alignSelf: "stretch",
@@ -151,7 +133,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titleCard: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
@@ -161,7 +143,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descCard: {
-    fontSize: 14,
+    fontSize: 12,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
@@ -169,7 +151,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titlePengiriman: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 0,
@@ -179,7 +161,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descPengiriman: {
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 20,
@@ -197,15 +179,16 @@ const styles = StyleSheet.create({
   },
   chipKomisi: {
     flexDirection: "row",
-    backgroundColor: "#58BBD8",
+    borderWidth: 0.5,
+    borderColor: color.purple800,
     margin: 4,
   },
   chiptext: {
-    fontSize: 14,
+    fontSize: 12,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
-    color: "white",
+    color: color.purple800,
     textAlign: "center",
     alignSelf: "stretch",
   },
@@ -218,5 +201,22 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     // bottom: 50,
     // backgroundColor: '#0055a5'
+  },
+  infoRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  btnUbahInfo: {
+    flexDirection: "row",
+    fontSize: 16,
+    // textDecorationLine: "underline",
+    color: color.purple800,
+    // width: 130,
+    // backgroundColor: "#F78F47",
+    marginRight: 20,
+    marginTop: 20,
+    // marginBottom: 5,
+    alignSelf: 'flex-end'
   },
 });

@@ -1,7 +1,9 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
+import { Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
+import { color } from "react-native-tailwindcss";
+
 
 function DetailReward({ navigation }) {
   const namaLengkapFans = "Zain Muhammad";
@@ -22,38 +24,35 @@ function DetailReward({ navigation }) {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Ripped Jeans Company
+                Cutlery Set - Dapur Mama Bunda
               </Text>
               <View style={styles.chiprow}>
-                <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
-                  Undian - 21 April 2020
+                <Chip mode="outlined" style={styles.chipUndian} textStyle={styles.chiptext}>
+                  Undian 21 Agustus 2020
                 </Chip>
               </View>
-              <Text style={styles.descCardKeterangan}>
-                - Undian berupa hadiah 5 buah Handphone Iphone X dan 10 buah
-                powerbank {"\n"}- Hadiah akan diundi pada tanggal 21 April 2020
-              </Text>
-              <Text style={styles.title}>Syarat & Ketentuan</Text>
+              <Text style={styles.title}>Keterangan</Text>
               <Text style={styles.descCard}>
-                - Periode hadiah hingga tanggal 21 Juni 2020{"\n"}- Hadiah hanya
-                dapat ditukarkan pada merchant terkait{"\n"}- Hadiah tidak dapat
-                ditukarkan dengan hadiah lainnya {"\n"}- Hadiah hanya dapat
-                ditukarkan sekali
+                - Hadiah akan diundi tanggal 21 Agustus 2020{"\n"}- Pihak merchant akan menghubungi kamu jika kamu berhasil mendapatkan undian{"\n"}
+                - Jangan lupa periksa kembali alamat pengiriman kamu{"\n"}
+                - Pastikan alamat pengiriman benar dan nomor telepon kamu aktif
               </Text>
 
               <Divider style={styles.divider} />
 
-              <Card style={styles.cardNotifikasi}>
                 <Text style={styles.descCardNotifikasi}>
-                  Selamat! Kamu memenangkan 1 buah powerbank
+                  Selamat! Kamu memenangkan 1 buah Cuterly Set
                 </Text>
-              </Card>
+
             </Card.Content>
             {/* <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('MyRewards')}>Klaim Hadiah</Button> */}
           </Card>
 
           <Card style={styles.cardKeterangan}>
-            <Text style={styles.titlePengiriman}>Detail Pengiriman</Text>
+            <View style={styles.infoRow}>
+              <Text style={styles.titlePengiriman}>Detail Pengiriman</Text>
+              <Text style={styles.btnUbahInfo} onPress={() => navigation.navigate("UbahDetailPengiriman")}>Ubah</Text>
+            </View>
             <Divider style={styles.divider} />
             <Text style={styles.descPengiriman}>
               {namaLengkapFans}
@@ -62,13 +61,6 @@ function DetailReward({ navigation }) {
               {"\n"}
               {noTelepon}
             </Text>
-            <Button
-              style={styles.button}
-              mode="contained"
-              onPress={() => navigation.navigate("UbahDetailPengiriman")}
-            >
-              Ubah Detail Pengiriman
-            </Button>
           </Card>
         </View>
       </ScrollView>
@@ -100,22 +92,11 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 8
     margin: 15,
   },
-  cardNotifikasi: {
-    justifyContent: "center",
-    // paddingHorizontal: 8
-    margin: 5,
-    marginBottom: 20,
-    backgroundColor: "#70F864",
-  },
-  descCardKeterangan: {
-    fontSize: 14,
-    margin: 5,
-    textAlign: "center",
-    alignSelf: "stretch",
-  },
   descCardNotifikasi: {
-    fontSize: 16,
+    fontSize: 14,
+    fontStyle: "italic",
     fontWeight: "bold",
+    color: color.purple800,
     margin: 5,
     textAlign: "center",
     alignSelf: "stretch",
@@ -131,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titleCard: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
@@ -141,7 +122,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descCard: {
-    fontSize: 14,
+    fontSize: 12,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
@@ -149,7 +130,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titlePengiriman: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 0,
@@ -159,7 +140,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descPengiriman: {
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 20,
@@ -177,15 +158,17 @@ const styles = StyleSheet.create({
   },
   chipUndian: {
     flexDirection: "row",
-    backgroundColor: "#f78f47",
+    // backgroundColor: "#f78f47",
+    borderWidth: 0.5,
+    borderColor: color.purple800,
     margin: 4,
   },
   chiptext: {
-    fontSize: 14,
+    fontSize: 12,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
-    color: "white",
+    color: color.purple800,
     textAlign: "center",
     alignSelf: "stretch",
   },
@@ -198,6 +181,23 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     // bottom: 50,
     // backgroundColor: '#0055a5'
+  },
+  infoRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  btnUbahInfo: {
+    flexDirection: "row",
+    fontSize: 16,
+    // textDecorationLine: "underline",
+    color: color.purple800,
+    // width: 130,
+    // backgroundColor: "#F78F47",
+    marginRight: 20,
+    marginTop: 20,
+    // marginBottom: 5,
+    alignSelf: 'flex-end'
   },
 });
 

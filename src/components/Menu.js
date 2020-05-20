@@ -19,7 +19,7 @@ export default class MyComponent extends React.Component {
     index: 0,
     routes: [
       { key: "home", title: "Home", icon: "home" },
-      { key: "referral", title: "Referral", icon: "link" },
+      { key: "referral", title: "Referral Stats", icon: "link" },
       { key: "reward", title: "My Rewards", icon: "gift" },
       { key: "profile", title: "My Profile", icon: "face" },
     ],

@@ -1,7 +1,8 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
+import { Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
+import { color } from "react-native-tailwindcss";
 
 // add the following statement
 // import Header from '../components/HeaderBack'
@@ -25,37 +26,33 @@ function DetailReward_Hadiah({ navigation }) {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Dapur Mama Bunda
+                Student Goes To School Package - Toko Buku Altera
               </Text>
               <View style={styles.chiprow}>
-                <Chip style={styles.chipHadiah} textStyle={styles.chiptext}>
+                <Chip mode="outlined" style={styles.chipHadiah} textStyle={styles.chiptext}>
                   Hadiah Langsung
                 </Chip>
               </View>
-              <Text style={styles.descCardKeterangan}>
-                Hadiah akan dikirimkan pada tanggal 21 Mei 2020
-              </Text>
-              <Text style={styles.title}>Syarat & Ketentuan</Text>
+              <Text style={styles.title}>Keterangan</Text>
               <Text style={styles.descCard}>
-                - Dana akan dikirim ke alamat yang kamu masukkan{"\n"}- Pastikan
-                alamat yang kamu masukkan benar{"\n"}- Pihak merchant tidak
-                bertanggung jawab atas kesalahan pengiriman hadiah
+                - Pihak merchant akan menghubungimu ketika hadiah hendak dikirim{"\n"}- Pastikan
+                alamat dan nomor telepon yang kamu masukkan benar
               </Text>
 
               <Divider style={styles.divider} />
 
-              <Card style={styles.cardNotifikasi}>
-                <Text style={styles.descCardNotifikasi}>
-                  Selamat! Kamu memperoleh hadiah 1 Dus Indomie Goreng dari
-                  penawaran ini
-                </Text>
-              </Card>
+              <Text style={styles.descCardNotifikasi}>
+                Selamat! Kamu mendapatkan hadiah 1 Student Goes To School Package dari penawaran ini
+              </Text>
             </Card.Content>
             {/* <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('MyRewards')}>Klaim Hadiah</Button> */}
           </Card>
 
           <Card style={styles.cardKeterangan}>
-            <Text style={styles.titlePengiriman}>Detail Rekening</Text>
+            <View style={styles.infoRow}>
+              <Text style={styles.titlePengiriman}>Detail Pengiriman</Text>
+              <Text style={styles.btnUbahInfo} onPress={() => navigation.navigate("UbahDetailPengiriman")}>Ubah</Text>
+            </View>
             <Divider style={styles.divider} />
             <Text style={styles.descPengiriman}>
               {namaLengkapFans}
@@ -64,13 +61,6 @@ function DetailReward_Hadiah({ navigation }) {
               {"\n"}
               {noTelepon}
             </Text>
-            <Button
-              style={styles.button}
-              mode="contained"
-              onPress={() => navigation.navigate("UbahDetailPengiriman")}
-            >
-              Ubah Detail Pengiriman
-            </Button>
           </Card>
         </View>
       </ScrollView>
@@ -102,22 +92,11 @@ const styles = StyleSheet.create({
     // paddingHorizontal: 8
     margin: 15,
   },
-  cardNotifikasi: {
-    justifyContent: "center",
-    // paddingHorizontal: 8
-    margin: 5,
-    marginBottom: 20,
-    backgroundColor: "#70F864",
-  },
-  descCardKeterangan: {
-    fontSize: 14,
-    margin: 5,
-    textAlign: "center",
-    alignSelf: "stretch",
-  },
   descCardNotifikasi: {
-    fontSize: 16,
+    fontSize: 14,
+    fontStyle: "italic",
     fontWeight: "bold",
+    color: color.purple800,
     margin: 5,
     textAlign: "center",
     alignSelf: "stretch",
@@ -133,7 +112,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titleCard: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
@@ -143,7 +122,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descCard: {
-    fontSize: 14,
+    fontSize: 12,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,
@@ -151,7 +130,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   titlePengiriman: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 0,
@@ -161,7 +140,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   descPengiriman: {
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 20,
     marginLeft: 20,
     marginBottom: 20,
@@ -179,15 +158,17 @@ const styles = StyleSheet.create({
   },
   chipHadiah: {
     flexDirection: "row",
-    backgroundColor: "#F93A90",
+    // backgroundColor: "#f78f47",
+    borderWidth: 0.5,
+    borderColor: color.purple800,
     margin: 4,
   },
   chiptext: {
-    fontSize: 14,
+    fontSize: 12,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
-    color: "white",
+    color: color.purple800,
     textAlign: "center",
     alignSelf: "stretch",
   },
@@ -200,6 +181,23 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     // bottom: 50,
     // backgroundColor: '#0055a5'
+  },
+  infoRow: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  btnUbahInfo: {
+    flexDirection: "row",
+    fontSize: 16,
+    // textDecorationLine: "underline",
+    color: color.purple800,
+    // width: 130,
+    // backgroundColor: "#F78F47",
+    marginRight: 20,
+    marginTop: 20,
+    // marginBottom: 5,
+    alignSelf: 'flex-end'
   },
 });
 

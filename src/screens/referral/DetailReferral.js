@@ -1,13 +1,15 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
-import { Appbar, Text, Card, Chip } from 'react-native-paper'
+import { Text, Card, Chip } from 'react-native-paper'
 import Header from "../../components/Header";
+import { color } from "react-native-tailwindcss";
+
 
 
 function DetailReferral({ navigation }) {
     return (
       <>
-        <Header titleText="Detail Referral" navigation={navigation} />
+        <Header titleText="Referral Stats Detail" navigation={navigation} />
 
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
@@ -21,12 +23,15 @@ function DetailReferral({ navigation }) {
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Ripped Jeans Company</Text>
-            <Text style={styles.dateCard}>21 Jan 2020 - 21 Jun 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
+          <View style={styles.chipRow}>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>12 Referred User</Chip>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>8 User Claimed</Chip>
+          </View>
+            <Text style={styles.titleCard}>5% Komisi Setiap Pembelian Denim Pants</Text>
+            <Text style={styles.merchantName}>Ripped Jeans Company</Text>
           </Card.Content>
           <View style={styles.status}>
-            <Chip style={styles.chipActive} textStyle={styles.chiptext}>Aktif</Chip>
+            <Chip style={styles.chipActive} textStyle={styles.chiptext}>Aktif: 31 Agustus 2020</Chip>
           </View>
         </Card>
 
@@ -39,12 +44,15 @@ function DetailReferral({ navigation }) {
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Toko Buku Altera</Text>
-            <Text style={styles.dateCard}>10 Jan 2020 - 10 Feb 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
+          <View style={styles.chipRow}>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>18 Referred User</Chip>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>6 User Claimed</Chip>
+          </View>
+            <Text style={styles.titleCard}>Hadiah Student Goes To School Package</Text>
+            <Text style={styles.merchantName}>Toko Buku Altera</Text>
           </Card.Content>
           <View style={styles.status}>
-            <Chip style={styles.chipInactive} textStyle={styles.chiptext}>Tidak Aktif</Chip>
+            <Chip style={styles.chipActive} textStyle={styles.chiptext}>Aktif: 21 Juli 2020</Chip>
           </View>
         </Card>
 
@@ -57,12 +65,16 @@ function DetailReferral({ navigation }) {
             }}
           />
           <Card.Content>
-            <Text style={styles.titleCard}>Dapur Mama Bunda</Text>
-            <Text style={styles.dateCard}>13 Des 2019 - 13 Jan 2020</Text>
-            <Text style={styles.descCard}>Pada offer ini kamu berhasil mendapatkan:{"\n"}- 2 Referral dari pengguna{"\n"}- 5 Reward{"\n"}- 8 Klaim dari pengguna</Text>
+          <View style={styles.chipRow}>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>43 Referred User</Chip>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>36 User Claimed</Chip>
+          </View>
+
+            <Text style={styles.titleCard}>Undian Cutlery Set</Text>
+            <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
           </Card.Content>
           <View style={styles.status}>
-            <Chip style={styles.chipInactive} textStyle={styles.chiptext}>Tidak Aktif</Chip>
+            <Chip style={styles.chipInactive} textStyle={styles.chiptext}>Nonaktif: 13 Mei 2020</Chip>
           </View>
         </Card>
 
@@ -90,7 +102,7 @@ const styles = StyleSheet.create({
       margin: 15
     },
     titleCard: {
-      fontSize: 18,
+      fontSize: 16,
       marginRight: 5,
       marginLeft: 5,
       marginBottom: 5,
@@ -99,42 +111,43 @@ const styles = StyleSheet.create({
       textAlign: 'left',
       alignSelf: 'stretch'
     },
-    dateCard: {
-      fontSize: 16,
+    merchantName: {
+      fontSize: 12,
       marginRight: 5,
       marginLeft: 5,
       marginBottom: 5,
       color: 'grey',
-      fontStyle: 'italic',
+      // fontStyle: 'italic',
       textAlign: 'left',
-      alignSelf: 'stretch'
-    },
-    descCard: {
-      fontSize: 14,
-      marginLeft: 5,
-      marginRight: 5,
+      alignSelf: 'stretch',
       marginBottom: 20,
-      textAlign: 'left',
-      alignSelf: 'stretch'
     },
-    chiprow: {
-      paddingVertical: 8,
+    chipRow: {
+      flex: 1,
       flexDirection: 'row',
-      flexWrap: 'wrap',
-      paddingHorizontal: 12,
+      marginTop: 10,
+      // justifyContent: "space-between"
+    },
+    chipStats: {
+      margin: 4,
+      borderWidth: 0.5,
+      borderColor: color.purple800,
     },
     chipActive: {
-      flexDirection: 'row',
-      backgroundColor: '#00C851',
+      // flexDirection: 'row',
+      backgroundColor: color.green400,
       margin: 4,
     },
     chipInactive: {
-      flexDirection: 'row',
-      backgroundColor: '#BE2D29',
+      backgroundColor: color.red500,
       margin: 4,
     },
     chiptext: {
       color: 'white',
+      fontSize: 12
+    },
+    chiptextStats: {
+      color: color.purple800,
     },
     status: {
       position: 'absolute',

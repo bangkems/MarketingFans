@@ -1,10 +1,11 @@
 import React, {Component, useState} from 'react'
 import { StyleSheet, View, ScrollView, Dimensions} from 'react-native'
-import { Text, Button, TextInput, Appbar, Snackbar, HelperText, RadioButton, IconButton } from 'react-native-paper'
+import { Text, Button, TextInput, Snackbar, HelperText, RadioButton, IconButton } from 'react-native-paper'
 import DateTimePickerModal from "react-native-modal-datetime-picker"
 import moment from 'moment'
 import 'moment/locale/id'
 import Header from "../../components/Header";
+import { color } from "react-native-tailwindcss";
 
 function Kalendar() {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -31,14 +32,14 @@ function Kalendar() {
       <View style={styles.calendarSection}>
         <IconButton style={styles.calendarIcon}
           icon="calendar"
-          color="#6F00F9"
+          color={color.purple800}
           size={40}
           onPress={showDatePicker}
         />
 
-        {/* <TextInput style={styles.inputCalendar} value={chosenDate} placeholder="Silahkan Pilih Tanggal"/> */}
+        <TextInput style={styles.inputCalendar} value={chosenDate} onFocus={showDatePicker} placeholder="Silahkan Pilih Tanggal"/>
 
-        <Text style={styles.fieldDesc}>{chosenDate}</Text>
+        {/* <Text style={styles.fieldDesc}>{chosenDate}</Text> */}
                 
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
@@ -88,6 +89,7 @@ export default class App extends Component {
           <Text style={styles.fieldTitle}>Nama Lengkap</Text>
           <TextInput
             // label='Nama Lengkap'
+            mode="outlined"
             value={this.state.namaLengkapFans}
             onChangeText={namaLengkapFans => this.setState({ namaLengkapFans })}
             style={styles.textInput}
@@ -95,6 +97,7 @@ export default class App extends Component {
 
           <Text style={styles.fieldTitle}>Alamat Email</Text>
           <TextInput
+            mode="outlined"
             value={this.state.alamatEmail}
             onChangeText={alamatEmail => this.setState({ alamatEmail })}
             style={styles.textInput}
@@ -110,6 +113,7 @@ export default class App extends Component {
             
           <Text style={styles.fieldTitle}>Nomor Telepon</Text>
           <TextInput
+            mode="outlined"
             value={this.state.noTelepon}
             onChangeText={noTelepon => this.setState({ noTelepon })}
             style={styles.textInput}
@@ -168,7 +172,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     margin: 20,
-    marginTop: 30,
+    marginTop: 10,
     marginBottom: 0,
     textAlign: 'left',
     alignSelf: 'stretch'
@@ -217,19 +221,16 @@ const styles = StyleSheet.create({
   calendarSection: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
   calendarIcon: {
-    margin: 5,
+    margin: 10,
   },
   inputCalendar: {
-    flex: 1,
-    marginLeft: 10,
-    marginRight: 20,
-    marginBottom: 20,
+    marginBottom:20,
     backgroundColor: '#fff',
-    color: '#424242',
+    // color: '#424242',
   },
   fieldDesc: {
     flex: 1,

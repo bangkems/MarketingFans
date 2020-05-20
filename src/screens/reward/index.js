@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
-import { Text, Avatar, Card, Chip } from "react-native-paper";
+import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
+import { Text, Card, Chip, Title, Divider } from "react-native-paper";
 import NavigationService from "../../navigation/NavigationService";
+import { AntDesign } from '@expo/vector-icons';
+import { color } from "react-native-tailwindcss";
 
 export default class Rewards extends React.Component {
   render() {
@@ -9,94 +11,68 @@ export default class Rewards extends React.Component {
       <>
         <ScrollView style={styles.scrollView}>
           <View style={styles.container}>
+          <Card.Content style={styles.cardRow}>
+            <AntDesign style={styles.iconTotReward} name="gift" size={24} color={color.purple800} />
+            <Text style={styles.titleTotReward}>Kamu Memiliki 3 Rewards. Mau reward lebih?</Text>
+          </Card.Content>
+          <Text style={styles.tombolLink} onPress={() => NavigationService.navigate("OfferScreen", {tags: "travel",})}
+          >Yuk bagikan penawaran lagi!</Text>
+          <Divider style={styles.divider}/>
+          
             {/* satu card */}
+            <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward")}>
             <Card style={styles.card}>
-              <Avatar.Image
-                style={styles.avatarBulat}
-                size={64}
-                source={{
-                  uri:
-                    "https://cdn.icon-icons.com/icons2/1465/PNG/512/666wrappedgift2_100993.png",
-                }}
-              />
-
               <Card.Content>
-                <Text style={styles.titleCard}>1 Buah Powerbank</Text>
+                <Text style={styles.titleCard}>Cutlery Set</Text>
+                <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
                 <View style={styles.chiprow}>
-                  <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
-                    Undian 21 April 2020
+                  {/* <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
+                    Undian
+                  </Chip> */}
+                  <Chip mode="outlined" style={styles.chipStatus} textStyle={styles.chiptextStatus}>
+                    Diundi 21 Agustus 2020
                   </Chip>
                 </View>
               </Card.Content>
-              <Text
-                style={styles.tombolLink}
-                onPress={() => NavigationService.navigate("DetailReward")}
-              >
-                Detail
-              </Text>
             </Card>
+            </TouchableOpacity>
 
             {/* satu card */}
+            <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward_Komisi")}>
             <Card style={styles.card}>
-              <Avatar.Image
-                style={styles.avatarBulat}
-                size={64}
-                source={{
-                  uri:
-                    "https://cdn.icon-icons.com/icons2/1465/PNG/512/666wrappedgift2_100993.png",
-                }}
-              />
-
               <Card.Content>
-                <Text style={styles.titleCard}>Rp. 320.596</Text>
+                <Text style={styles.titleCard}>Rp. 28.000</Text>
+                <Text style={styles.merchantName}>Ripped Jeans Company</Text>
                 <View style={styles.chiprow}>
-                  <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>
-                    Komisi 10%
+                  {/* <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>
+                    Komisi
+                  </Chip> */}
+                  <Chip mode="outlined" style={styles.chipStatus} textStyle={styles.chiptextStatus}>
+                    Sudah Ditransfer
                   </Chip>
                 </View>
               </Card.Content>
-              <Text
-                style={styles.tombolLink}
-                onPress={() =>
-                  NavigationService.navigate("DetailReward_Komisi")
-                  // NavigationService.navigate("DetailReward_Komisi")
-                }
-              >
-                Detail
-              </Text>
             </Card>
+            </TouchableOpacity>
 
             {/* satu card */}
+            <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward_Hadiah")}>
             <Card style={styles.card}>
-              <Avatar.Image
-                style={styles.avatarBulat}
-                size={64}
-                source={{
-                  uri:
-                    "https://cdn.icon-icons.com/icons2/1465/PNG/512/666wrappedgift2_100993.png",
-                }}
-              />
-
               <Card.Content>
-                <Text style={styles.titleCard}>1 Dus Indomie</Text>
+                <Text style={styles.titleCard}>Student Goes To School Package</Text>
+                <Text style={styles.merchantName}>Toko Buku Altera</Text>
                 <View style={styles.chiprow}>
-                  <Chip
-                    style={styles.chipHadiahLangsung}
-                    textStyle={styles.chiptext}
-                  >
+                  {/* <Chip style={styles.chipHadiahLangsung} textStyle={styles.chiptext}>
                     Hadiah 
+                  </Chip> */}
+                  <Chip mode="outlined" style={styles.chipStatus} textStyle={styles.chiptextStatus}>
+                    Sedang Dikirim
                   </Chip>
                 </View>
               </Card.Content>
-              <Text
-                style={styles.tombolLink}
-                onPress={() =>
-                  NavigationService.navigate("DetailReward_Hadiah")
-                }
-              >
-                Detail
-              </Text>
             </Card>
+            </TouchableOpacity>
+
           </View>
         </ScrollView>
       </>
@@ -121,8 +97,8 @@ const styles = StyleSheet.create({
   },
   card: {
     justifyContent: "center",
-    borderWidth: 1.5,
-    borderColor: "whitesmoke",
+    borderWidth: 0.5,
+    borderColor: color.white,
     // paddingHorizontal: 8
     marginTop: 10,
     marginLeft: 15,
@@ -131,79 +107,102 @@ const styles = StyleSheet.create({
     // height: 120
   },
   titleCard: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 5,
-    marginLeft: 45,
+    marginLeft: 10,
     marginBottom: 0,
-    marginTop: 15,
-    paddingHorizontal: 35,
+    // marginTop: 5,
+    // paddingHorizontal: 35,
     fontWeight: "bold",
     textAlign: "left",
     alignSelf: "stretch",
-  },
-  dateCard: {
-    fontSize: 14,
-    marginRight: 5,
-    marginLeft: 35,
-    paddingHorizontal: 35,
-    marginBottom: 20,
-    color: "grey",
-    fontStyle: "italic",
-    textAlign: "left",
-    alignSelf: "stretch",
-  },
-  avatarBulat: {
-    flexDirection: "row",
-    margin: 20,
-    position: "absolute",
   },
   tombolLink: {
-    // paddingTop: 10,
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "right",
-    marginRight: 10,
-    color: "#5d78ff",
-    position: "absolute",
-    paddingTop: 40,
-    right: 16,
+    textAlign: 'center',
+    marginBottom:20,
+    color: color.purple800,
+  },
+  chipStatus: {
+    flexDirection: "row",
+    // width: 130,
+    borderWidth: 0.5,
+    borderColor: color.purple800,
+    marginTop: 5,
   },
   chipUndian: {
     flexDirection: "row",
     // width: 130,
     backgroundColor: "#F78F47",
-    margin: 10,
-    marginBottom: 20,
+    marginTop: 5,
   },
   chipHadiahLangsung: {
     flexDirection: "row",
     // width: 130,
     backgroundColor: "#F93A90",
-    margin: 10,
-    marginBottom: 20,
+    marginTop: 5,
+
   },
   chipKomisi: {
     flexDirection: "row",
     // width: 130,
     backgroundColor: "#58BBD8",
-    margin: 10,
-    marginBottom: 20,
+    marginTop: 5,
+    // marginBottom: 20,
   },
   chiprow: {
     // paddingVertical: 8,
     flexDirection: "row",
-    marginLeft: 70,
+    marginLeft: 10,
+    marginBottom: 5,
     flexWrap: "wrap",
     flex: 1,
     justifyContent: "space-between",
   },
   chiptext: {
-    fontSize: 12,
+    fontSize: 10,
     marginRight: 5,
     marginLeft: 5,
     marginBottom: 5,
     color: "white",
     textAlign: "center",
     alignSelf: "stretch",
+  },
+  chiptextStatus: {
+    fontSize: 12,
+    marginRight: 5,
+    marginLeft: 5,
+    marginBottom: 5,
+    color: color.purple800,
+    textAlign: "center",
+    alignSelf: "stretch",
+  },
+  cardRow: {
+    flex: 1,
+    flexDirection: 'row',
+    // alignItems: 'center',
+    justifyContent: 'center',
+    // paddingHorizontal:50,
+  },
+  titleTotReward: {
+    fontSize: 14,
+    paddingHorizontal: 10,
+    marginTop:8,
+    textAlign: "left",
+    alignSelf: "stretch",
+  },
+  iconTotReward: {
+    margin:5,
+  },
+  divider: {
+    marginBottom:20,
+  },
+  merchantName: {
+    fontSize: 12,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 5,
+    color: 'grey',
+    // fontStyle: 'italic',
+    textAlign: 'left',
   },
 });

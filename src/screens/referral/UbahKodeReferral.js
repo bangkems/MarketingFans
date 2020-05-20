@@ -25,7 +25,7 @@ function Konfirm(item) {
 class MyComponent extends React.Component {
   state = {
     visible: false,
-    text: 'namakeren'
+    text: 'zainkeren'
   };
 
   _showDialog = () => this.setState({ visible: true });
@@ -47,7 +47,7 @@ class MyComponent extends React.Component {
 
             <View style={styles.titleContainer}>
               <Title style={styles.title}>Kode Referral Baru</Title>
-              <Text style={styles.subtitle}>Kode referral ini yang akan muncul ketika kamu membagikan penawaran ke sosial media.</Text>
+              <Text style={styles.subtitle}>Kode referral ini yang akan muncul pada link penawaran yang kamu bagikan ke sosial media.</Text>
               <Text style={styles.subtitle}>Silahkan ganti kode referralmu melalui form dibawah ini.</Text>
             </View>
 
@@ -126,7 +126,8 @@ const styles = StyleSheet.create({
     kodeReferral: {
       marginLeft: 20,
       marginRight: 20,
-      marginBottom: 20
+      marginBottom: 20,
+      backgroundColor: '#fff',
     },
     button: {
       marginLeft: 20,

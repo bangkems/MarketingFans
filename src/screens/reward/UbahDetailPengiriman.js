@@ -4,25 +4,9 @@ import { Text, Button, TextInput, Appbar, Snackbar } from 'react-native-paper'
 //import DatePicker from the package we installed
 
 // add the following statement
-// import Header from '../components/Header'
+import Header from "../../components/Header";
 
-function UbahDetailPengiriman({ navigation }) {
-  return (
-    <>
-      <Appbar.Header>
-          <Appbar.BackAction
-            onPress={() => navigation.navigate('DetailReward')}
-          />
-          <Appbar.Content
-            title="Ubah Detail Pengiriman"
-          />
-      </Appbar.Header>
-      <MyComponent />
-        
-    </>
-  );
-}
-class MyComponent extends React.Component {
+export default class MyComponent extends React.Component {
   constructor(props){
     super(props)
     //set value in state for initial date
@@ -42,12 +26,15 @@ class MyComponent extends React.Component {
     const { visible } = this.state;
 
     return (
+      <>
+      <Header titleText="Ubah Detail Pengiriman" />
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
 
           <Text style={styles.fieldTitle}>Nama Lengkap</Text>
             <TextInput
               // label='Nama Lengkap'
+              mode="outlined"
               value={this.state.namaLengkapFans}
               onChangeText={namaLengkapFans => this.setState({ namaLengkapFans })}
               style={styles.textInput}
@@ -55,6 +42,7 @@ class MyComponent extends React.Component {
 
             <Text style={styles.fieldTitle}>Alamat Pengiriman</Text>
             <TextInput
+              mode="outlined"
               value={this.state.alamatPengiriman}
               onChangeText={alamatPengiriman => this.setState({ alamatPengiriman })}
               style={styles.textInput}
@@ -64,9 +52,11 @@ class MyComponent extends React.Component {
             
             <Text style={styles.fieldTitle}>Nomor Telepon</Text>
             <TextInput
+              mode="outlined"
               value={this.state.noTelepon}
               onChangeText={noTelepon => this.setState({ noTelepon })}
               style={styles.textInput}
+              keyboardType="numeric"
             />
 
           <Snackbar
@@ -83,10 +73,11 @@ class MyComponent extends React.Component {
             Detail Pengirimanmu berhasil diperbarui!
           </Snackbar>
 
-          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Ubah Detail Pengiriman</Button>
+          <Button style={styles.button} mode="contained" onPress={this._onToggleSnackBar}>Perbarui Detail Pengiriman</Button>
 
         </View>
       </ScrollView>
+      </>
     );
   }
 }
@@ -112,7 +103,8 @@ const styles = StyleSheet.create({
     textInput: {
       margin: 20,
       marginTop: 10,
-      marginBottom: 10
+      marginBottom: 10,
+      backgroundColor: '#fff',
     },
     button: {
       margin: 20,
@@ -128,6 +120,4 @@ const styles = StyleSheet.create({
       backgroundColor: '#57B258'
     }
   })
-
-  export default UbahDetailPengiriman
 
