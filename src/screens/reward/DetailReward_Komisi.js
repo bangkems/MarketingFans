@@ -4,7 +4,7 @@ import { Appbar, Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
 import NavigationService from "../../navigation/NavigationService";
 import { color } from "react-native-tailwindcss";
-
+import { FontAwesome5 } from '@expo/vector-icons';
 
 
 // add the following statement
@@ -39,8 +39,12 @@ export default class MyComponent extends React.Component {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Rp 28.000 - Ripped Jeans Company
+                Rp 28.000 - Discount all item up to 20%
               </Text>
+              <View style={styles.merchantrow}>
+                  <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
+                  <Text style={styles.merchantName}>Ripped Jeans Company</Text>
+              </View>
               <View style={styles.chiprow}>
                 <Chip mode="outlined" style={styles.chipKomisi} textStyle={styles.chiptext}>
                   Komisi 10%
@@ -218,5 +222,23 @@ const styles = StyleSheet.create({
     marginTop: 20,
     // marginBottom: 5,
     alignSelf: 'flex-end'
+  },
+  merchantrow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+    marginLeft: 10,
+    marginBottom: 5,
+  },
+  merchantName: {
+    fontSize: 12,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 5,
+    color: 'grey',
+    // fontStyle: 'italic',
+    textAlign: 'left',
   },
 });

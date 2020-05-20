@@ -3,6 +3,7 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import { Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/Header";
 import { color } from "react-native-tailwindcss";
+import { FontAwesome5 } from '@expo/vector-icons';
 
 
 function DetailReward({ navigation }) {
@@ -24,8 +25,12 @@ function DetailReward({ navigation }) {
             />
             <Card.Content>
               <Text style={styles.titleCard}>
-                Cutlery Set - Dapur Mama Bunda
+                Cutlery Set - Diskon 50% Produk Sayuran
               </Text>
+              <View style={styles.merchantrow}>
+                  <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
+                  <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
+              </View>
               <View style={styles.chiprow}>
                 <Chip mode="outlined" style={styles.chipUndian} textStyle={styles.chiptext}>
                   Undian 21 Agustus 2020
@@ -198,6 +203,24 @@ const styles = StyleSheet.create({
     marginTop: 20,
     // marginBottom: 5,
     alignSelf: 'flex-end'
+  },
+  merchantrow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+    marginLeft: 10,
+    marginBottom: 5,
+  },
+  merchantName: {
+    fontSize: 12,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 5,
+    color: 'grey',
+    // fontStyle: 'italic',
+    textAlign: 'left',
   },
 });
 

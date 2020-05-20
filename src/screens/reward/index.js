@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
 import { Text, Card, Chip, Title, Divider } from "react-native-paper";
 import NavigationService from "../../navigation/NavigationService";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import { color } from "react-native-tailwindcss";
 
 export default class Rewards extends React.Component {
@@ -24,7 +24,11 @@ export default class Rewards extends React.Component {
             <Card style={styles.card}>
               <Card.Content>
                 <Text style={styles.titleCard}>Cutlery Set</Text>
-                <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
+                <Text style={styles.offerName}>Diskon 50% Produk Sayuran</Text>
+                <View style={styles.merchantrow}>
+                  <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
+                  <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
+                </View>
                 <View style={styles.chiprow}>
                   {/* <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
                     Undian
@@ -42,7 +46,11 @@ export default class Rewards extends React.Component {
             <Card style={styles.card}>
               <Card.Content>
                 <Text style={styles.titleCard}>Rp. 28.000</Text>
-                <Text style={styles.merchantName}>Ripped Jeans Company</Text>
+                <Text style={styles.offerName}>Discount all item up to 20%</Text>
+                <View style={styles.merchantrow}>
+                  <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
+                  <Text style={styles.merchantName}>Ripped Jeans Company</Text>
+                </View>
                 <View style={styles.chiprow}>
                   {/* <Chip style={styles.chipKomisi} textStyle={styles.chiptext}>
                     Komisi
@@ -60,7 +68,11 @@ export default class Rewards extends React.Component {
             <Card style={styles.card}>
               <Card.Content>
                 <Text style={styles.titleCard}>Student Goes To School Package</Text>
-                <Text style={styles.merchantName}>Toko Buku Altera</Text>
+                <Text style={styles.offerName}>Beli 1 Dapat 1 Novel Fiksi</Text>
+                <View style={styles.merchantrow}>
+                  <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
+                  <Text style={styles.merchantName}>Toko Buku Altera</Text>
+                </View>
                 <View style={styles.chiprow}>
                   {/* <Chip style={styles.chipHadiahLangsung} textStyle={styles.chiptext}>
                     Hadiah 
@@ -127,7 +139,7 @@ const styles = StyleSheet.create({
     // width: 130,
     borderWidth: 0.5,
     borderColor: color.purple800,
-    marginTop: 5,
+    // marginTop: 5,
   },
   chipUndian: {
     flexDirection: "row",
@@ -157,6 +169,14 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     flex: 1,
     justifyContent: "space-between",
+  },
+  merchantrow: {
+    // paddingVertical: 8,
+    flexDirection: "row",
+    marginLeft: 10,
+    marginBottom: 5,
+    flexWrap: "wrap",
+    flex: 1,
   },
   chiptext: {
     fontSize: 10,
@@ -202,6 +222,16 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 5,
     color: 'grey',
+    // fontStyle: 'italic',
+    textAlign: 'left',
+  },
+  offerName: {
+    fontSize: 12,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 5,
+    marginTop: 5,
+    color: color.black,
     // fontStyle: 'italic',
     textAlign: 'left',
   },
