@@ -1,21 +1,41 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+} from "react-native";
 import {
   Paragraph,
   IconButton,
   Card,
-  Button,
-  List,
   Caption,
+  TouchableRipple,
+  Portal,
 } from "react-native-paper";
 import { color, tw } from "react-native-tailwindcss";
 import Offer from "../../components/Offer";
 import NavigationService from "../../navigation/NavigationService";
 import { FontAwesome5, Entypo } from "@expo/vector-icons";
+import ActionSheetInner from "../../components/ActionSheetInner";
+import ActionSheetHeader from "../../components/ActionSheetHeader";
+import BottomSheet from "reanimated-bottom-sheet";
+import Animated from "react-native-reanimated";
 
 export class landing extends Component {
   constructor() {
     super();
+    this.bs = React.createRef();
+    this.fall = new Animated.Value(1);
+    this.handleOutsidePress = () => {
+      this.bs.current.snapTo(0);
+      this.bs.current.snapTo(0);
+    };
+    this.state = {
+      overlay: false,
+      text: "EDF19P3",
+    };
     this.data = [
       {
         merchant: "Ripped Jeans Co",
@@ -93,6 +113,35 @@ export class landing extends Component {
   render() {
     return (
       <>
+        <Portal>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.setState({ overlay: false });
+              this.bs.current.snapTo(0);
+              this.bs.current.snapTo(0);
+            }}
+          >
+            <Animated.View
+              style={[
+                this.state.overlay ? "" : tw.hidden,
+                {
+                  height: "100%",
+                  backgroundColor: "#000",
+                  opacity: Animated.add(0.8, Animated.multiply(this.fall, -1)),
+                },
+              ]}
+            ></Animated.View>
+          </TouchableWithoutFeedback>
+          <BottomSheet
+            ref={this.bs}
+            snapPoints={[-100, 220, 360]}
+            renderContent={() => <ActionSheetInner title={this.state.text} />}
+            renderHeader={() => <ActionSheetHeader />}
+            callbackNode={this.fall}
+            initialSnap={0}
+            enabledInnerScrolling={false}
+          />
+        </Portal>
         {this.miniStat()}
         <View style={[tw.mB3, tw.mX2]}>
           <View style={[tw.flex, tw.flexRow, tw.mY5]}>
@@ -146,19 +195,30 @@ export class landing extends Component {
             >
               Penawaran terbaru
             </Text>
-            <View style={[tw.itemsCenter]}>
-              {this.data.map((item, key) => (
-                <Offer
-                  key={key}
-                  merchant={item.merchant}
-                  title={item.title}
-                  image={item.image}
-                  category={item.category}
-                  reward={item.reward}
-                  condition={item.condition}
-                />
-              ))}
-            </View>
+            {this.data.map((item, key) => (
+              <View key={key}>
+                <TouchableRipple
+                  rippleColor="rgba(0, 0, 0, .32)"
+                  onPress={() => {
+                    this.setState({
+                      overlay: true,
+                      text: item.title,
+                    });
+                    this.bs.current.snapTo(1);
+                    this.bs.current.snapTo(1);
+                  }}
+                >
+                  <Offer
+                    merchant={item.merchant}
+                    title={item.title}
+                    image={item.image}
+                    category={item.category}
+                    reward={item.reward}
+                    condition={item.condition}
+                  />
+                </TouchableRipple>
+              </View>
+            ))}
             <Text style={[tw.mY2, tw.textCenter, tw.textGray600]}>
               Mentok boi, sudahlah
             </Text>

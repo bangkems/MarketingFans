@@ -16,7 +16,7 @@ export default class Example extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#ffffffee",
+    backgroundColor: "#ffffff",
     shadowColor: "#000000",
     paddingTop: 20,
     marginLeft: 10,
