@@ -27,7 +27,7 @@ function DetailReferral({ navigation }) {
             <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>12 Referred User</Chip>
             <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>8 User Claimed</Chip>
           </View>
-            <Text style={styles.titleCard}>5% Komisi Setiap Pembelian Denim Pants</Text>
+            <Text style={styles.titleCard}>Discount All Item Up to 20%</Text>
             <Text style={styles.merchantName}>Ripped Jeans Company</Text>
           </Card.Content>
           <View style={styles.status}>
@@ -48,7 +48,7 @@ function DetailReferral({ navigation }) {
             <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>18 Referred User</Chip>
             <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>6 User Claimed</Chip>
           </View>
-            <Text style={styles.titleCard}>Hadiah Student Goes To School Package</Text>
+            <Text style={styles.titleCard}>Beli 1 Dapat 1 Novel Fiksi</Text>
             <Text style={styles.merchantName}>Toko Buku Altera</Text>
           </Card.Content>
           <View style={styles.status}>
@@ -70,7 +70,7 @@ function DetailReferral({ navigation }) {
             <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>36 User Claimed</Chip>
           </View>
 
-            <Text style={styles.titleCard}>Undian Cutlery Set</Text>
+            <Text style={styles.titleCard}>Diskon 50% Produk Sayuran</Text>
             <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
           </Card.Content>
           <View style={styles.status}>
