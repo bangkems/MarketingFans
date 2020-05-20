@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   tombolLink: {
     paddingTop: 20,
     // fontWeight: 'bold',
-    // textDecorationLine: 'underline',
+    textDecorationLine: 'underline',
     textAlign: 'center',
     marginRight: 20,
     color: color.purple800,
