@@ -44,7 +44,7 @@ export default class LoginKirimUlang extends Component {
             mode="flat" 
             keyboardType="number-pad"
           />
-          <Button style={styles.tombol} mode="contained" onPress={ this.CekOTP }>
+          <Button style={styles.tombol} mode="contained" onPress={ this.CekOTP } labelStyle={{color:'black'}}>
             MASUK DENGAN OTP
           </Button>
         </View>
@@ -56,7 +56,7 @@ export default class LoginKirimUlang extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.purple800,
+    backgroundColor: color.purple900,
     paddingHorizontal: 20,
     paddingVertical: 50,
   },
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   tombol: {
     marginTop: 20,
     paddingVertical: 5,
-    backgroundColor: color.purple400
+    backgroundColor: color.yellow500
   },
   tombolLink: {
     textDecorationLine: 'underline',

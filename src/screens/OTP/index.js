@@ -27,7 +27,7 @@ export default class index extends Component {
       <>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>Selamat Datang di Marketing Platform</Text>
+            <Text style={styles.title}>Selamat Datang di Aplikasi MarketingFans</Text>
             <Text style={styles.subtitle}>Masukkan nomor HP Anda untuk melakukan login dengan OTP</Text>
           </View>
           <TextInput 
@@ -38,7 +38,7 @@ export default class index extends Component {
             mode="flat" 
             keyboardType="phone-pad"
           />
-          <Button style={styles.tombol} mode="contained" onPress={this.CekNomorHP}>
+          <Button style={styles.tombol} mode="contained" onPress={this.CekNomorHP} labelStyle={{color:'black'}}>
           KIRIM OTP
           </Button>
         </View>
@@ -51,7 +51,7 @@ export default class index extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.purple800,
+    backgroundColor: color.purple900,
     paddingHorizontal: 20,
     paddingVertical: 50
   },
@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
   tombol: {
     marginTop: 20,
     paddingVertical: 5,
-    backgroundColor: color.purple400
+    backgroundColor: color.yellow500
   }
 })

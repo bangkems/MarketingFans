@@ -188,7 +188,7 @@ export class landing extends Component {
             enabledInnerScrolling={false}
           />
         </Portal>
-        {this.miniStat()}
+        {/* {this.miniStat()} */}
         <View style={[tw.mB3, tw.mX2]}>
           <View style={[tw.flex, tw.flexRow, tw.mY5]}>
             <View style={[tw.m1, tw.flexGrow, tw.itemsCenter]}>
@@ -273,7 +273,7 @@ export class landing extends Component {
               </View>
             ))}
             <Text style={[tw.mY2, tw.textCenter, tw.textGray600]}>
-              Mentok boi, sudahlah
+              That's All!
             </Text>
           </View>
         </View>

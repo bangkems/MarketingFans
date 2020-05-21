@@ -77,7 +77,7 @@ const StackNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: "IndexScreen",
+    initialRouteName: "OnboardingFans",
     headerMode: "none",
     defaultNavigationOptions: {
       cardStyle: { backgroundColor: "#FFF" },
