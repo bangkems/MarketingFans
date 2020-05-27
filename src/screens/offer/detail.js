@@ -15,7 +15,6 @@ import ActionSheetInner from "../../components/ActionSheetInner";
 import ActionSheetHeader from "../../components/ActionSheetHeader";
 import BottomSheet from "reanimated-bottom-sheet";
 import { Ionicons } from "@expo/vector-icons";
-import Constants from "expo-constants";
 
 function index({ navigation }) {
   const bs = React.createRef();
