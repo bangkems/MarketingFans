@@ -5,8 +5,18 @@ import NavigationService from "../../navigation/NavigationService";
 import { color } from "react-native-tailwindcss";
 
 export default class Referral extends React.Component {
+  constructor(props){
+    super(props);
+    //set value in state for initial date
+    this.state = {
+      kodeReferral: 'zainkeren',
+      totalShared: '128',
+      referredUser: '89',
+      userClaimed: '72',
+    };
+  }
   render() {
-    const kodeReferral = 'zainkeren'
+    // const kodeReferral = 'zainkeren'
     return (
       <>
         <ScrollView style={styles.scrollView}>
@@ -20,7 +30,7 @@ export default class Referral extends React.Component {
           <Card style={styles.card}>
               <Card.Content style={styles.cardRow}>
                 <Title style={styles.titleStats}>Total Shared</Title>
-                <Headline style={styles.stats}>128</Headline>
+                <Headline style={styles.stats}>{this.state.totalShared}</Headline>
               </Card.Content>
           </Card>
           <Caption style={styles.descStats}>*Jumlah offer yang telah kamu bagikan</Caption>
@@ -28,7 +38,7 @@ export default class Referral extends React.Component {
           <Card style={styles.card}>
               <Card.Content style={styles.cardRow}>
                 <Title style={styles.titleStats}>Referred User</Title>
-                <Headline style={styles.stats}>89</Headline>
+                <Headline style={styles.stats}>{this.state.referredUser}</Headline>
               </Card.Content>
           </Card>
           <Caption style={styles.descStats}>*Jumlah orang berhasil kamu ajak melalui offer yang kamu bagikan</Caption>
@@ -36,7 +46,7 @@ export default class Referral extends React.Component {
           <Card style={styles.card}>
               <Card.Content style={styles.cardRow}>
                 <Title style={styles.titleStats}>User Claimed</Title>
-                <Headline style={styles.stats}>72</Headline>
+                <Headline style={styles.stats}>{this.state.userClaimed}</Headline>
               </Card.Content>
           </Card>
           <Caption style={styles.descStats}>*Jumlah klaim penawaran yang dilakukan oleh orang yang berhasil kamu ajak</Caption>
@@ -54,7 +64,7 @@ export default class Referral extends React.Component {
             <Text style={styles.subtitle}>Kode referral ini yang akan muncul pada link penawaran yang kamu bagikan ke sosial media.</Text>
           </View>
 
-          <Text style={styles.kodeReferral}>Kode Referralmu: {kodeReferral}</Text>
+          <Text style={styles.kodeReferral}>Kode Referralmu: {this.state.kodeReferral}</Text>
 
           <Button style={styles.button} mode="contained" onPress={() => NavigationService.navigate("OfferScreen", {tags: "travel",})}>Bagikan Penawaran Lagi</Button>
           {/* bagikan kode referral penawaran sementara langdsung didirect ke halaman offer aja, fans milih offers untuk dibagikan */}

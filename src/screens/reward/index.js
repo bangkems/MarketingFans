@@ -6,6 +6,18 @@ import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import { color } from "react-native-tailwindcss";
 
 export default class Rewards extends React.Component {
+  constructor(props){
+    super(props);
+    //set value in state for initial date
+    this.state = {
+      totalReward: '3',
+      namaUndian: 'Cutlery Set',
+      namaOffer: 'Diskon 50% Produk Sayuran',
+      namaMerchant: 'Dapur Mama Bunda',
+      namaHadiah: 'Student Goes To School Package',
+      nominalKomisi: '28.000',
+    };
+  }
   render() {
     return (
       <>
@@ -13,7 +25,7 @@ export default class Rewards extends React.Component {
           <View style={styles.container}>
           <Card.Content style={styles.cardRow}>
             <AntDesign style={styles.iconTotReward} name="gift" size={24} color={color.purple800} />
-            <Text style={styles.titleTotReward}>Kamu Memiliki 3 Rewards. Mau reward lebih?</Text>
+            <Text style={styles.titleTotReward}>Kamu Memiliki {this.state.totalReward} Rewards. Mau reward lebih?</Text>
           </Card.Content>
           <Text style={styles.tombolLink} onPress={() => NavigationService.navigate("OfferScreen", {tags: "travel",})}
           >Yuk bagikan penawaran lagi!</Text>
@@ -23,11 +35,11 @@ export default class Rewards extends React.Component {
             <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward")}>
             <Card style={styles.card}>
               <Card.Content>
-                <Text style={styles.titleCard}>Cutlery Set</Text>
-                <Text style={styles.offerName}>Diskon 50% Produk Sayuran</Text>
+                <Text style={styles.titleCard}>{this.state.namaUndian}</Text>
+                <Text style={styles.offerName}>{this.state.namaOffer}</Text>
                 <View style={styles.merchantrow}>
                   <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
-                  <Text style={styles.merchantName}>Dapur Mama Bunda</Text>
+                  <Text style={styles.merchantName}>{this.state.namaMerchant}</Text>
                 </View>
                 <View style={styles.chiprow}>
                   {/* <Chip style={styles.chipUndian} textStyle={styles.chiptext}>
@@ -45,7 +57,7 @@ export default class Rewards extends React.Component {
             <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward_Komisi")}>
             <Card style={styles.card}>
               <Card.Content>
-                <Text style={styles.titleCard}>Rp. 28.000</Text>
+                <Text style={styles.titleCard}>Rp. {this.state.nominalKomisi}</Text>
                 <Text style={styles.offerName}>Discount all item up to 20%</Text>
                 <View style={styles.merchantrow}>
                   <FontAwesome5 name="store-alt" size={12} color={color.purple800} />
@@ -67,7 +79,7 @@ export default class Rewards extends React.Component {
             <TouchableOpacity  onPress={() => NavigationService.navigate("DetailReward_Hadiah")}>
             <Card style={styles.card}>
               <Card.Content>
-                <Text style={styles.titleCard}>Student Goes To School Package</Text>
+                <Text style={styles.titleCard}>{this.state.namaHadiah}</Text>
                 <Text style={styles.offerName}>Beli 1 Dapat 1 Novel Fiksi</Text>
                 <View style={styles.merchantrow}>
                   <FontAwesome5 name="store-alt" size={12} color={color.purple800} />

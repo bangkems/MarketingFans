@@ -6,10 +6,24 @@ import { color } from "react-native-tailwindcss";
 
 
 
-function DetailReferral({ navigation }) {
+export default class DetailReferral extends React.Component {
+  constructor(props){
+    super(props);
+    //set value in state for initial date
+    this.state = {
+      referredUser: '12',
+      userClaimed: '8',
+      namaOffer: 'Discount All Item Up to 20%',
+      namaMerchant: 'Ripped Jeans Company',
+      active: 'Aktif',
+      nonactive: 'Nonaktif',
+      date: '31 Agustus 2020'
+    };
+  }
+  render() {
     return (
       <>
-        <Header titleText="Referral Stats Detail" navigation={navigation} />
+        <Header titleText="Referral Stats Detail"/>
 
         <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
@@ -24,14 +38,14 @@ function DetailReferral({ navigation }) {
           />
           <Card.Content>
           <View style={styles.chipRow}>
-            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>12 Referred User</Chip>
-            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>8 User Claimed</Chip>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>{this.state.referredUser} Referred User</Chip>
+            <Chip mode="outlined" style={styles.chipStats} textStyle={styles.chiptextStats}>{this.state.userClaimed} User Claimed</Chip>
           </View>
-            <Text style={styles.titleCard}>Discount All Item Up to 20%</Text>
-            <Text style={styles.merchantName}>Ripped Jeans Company</Text>
+            <Text style={styles.titleCard}>{this.state.namaOffer}</Text>
+            <Text style={styles.merchantName}>{this.state.namaMerchant}</Text>
           </Card.Content>
           <View style={styles.status}>
-            <Chip style={styles.chipActive} textStyle={styles.chiptext}>Aktif: 31 Agustus 2020</Chip>
+            <Chip style={styles.chipActive} textStyle={styles.chiptext}>{this.state.active}: {this.state.date}</Chip>
           </View>
         </Card>
 
@@ -81,7 +95,8 @@ function DetailReferral({ navigation }) {
         </View>
         </ScrollView>
       </>
-    )
+    );
+  }
   }
 
 const styles = StyleSheet.create({
@@ -156,6 +171,4 @@ const styles = StyleSheet.create({
     },
 
   })
-
-export default DetailReferral
 

@@ -4,17 +4,25 @@ import { Text, Card, Chip, Divider, Button } from "react-native-paper";
 import Header from "../../components/HeaderBack";
 import { color } from "react-native-tailwindcss";
 import { FontAwesome5 } from '@expo/vector-icons';
+import NavigationService from "../../navigation/NavigationService";
 
 // add the following statement
 // import Header from '../components/HeaderBack'
 
-function DetailReward_Hadiah({ navigation }) {
-  const namaLengkapFans = "Zain Muhammad";
-  const alamatPengiriman = "Jalan Kelapa Muda No. 36 Surabaya Kode Pos 6115";
-  const noTelepon = "083323458967";
+export default class DetailReward_Hadiah extends React.Component {
+  constructor(props){
+    super(props);
+    //set value in state for initial date
+    this.state = {
+      namaLengkapFans: 'Zain Muhammad',
+      alamatPengiriman: 'Jalan Kelapa Muda No. 36 Surabaya Kode Pos 611',
+      noTelepon: '083323458967',
+    };
+  }
+  render() {
   return (
     <>
-      <Header titleText="Detail Reward" navigation={navigation} />
+      <Header titleText="Detail Reward"/>
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           {/* satu card */}
@@ -56,21 +64,22 @@ function DetailReward_Hadiah({ navigation }) {
           <Card style={styles.cardKeterangan}>
             <View style={styles.infoRow}>
               <Text style={styles.titlePengiriman}>Detail Pengiriman</Text>
-              <Text style={styles.btnUbahInfo} onPress={() => navigation.navigate("UbahDetailPengiriman")}>Ubah</Text>
+              <Text style={styles.btnUbahInfo} onPress={() =>NavigationService.navigate("UbahDetailPengiriman")}>Ubah</Text>
             </View>
             <Divider style={styles.divider} />
             <Text style={styles.descPengiriman}>
-              {namaLengkapFans}
+              {this.state.namaLengkapFans}
               {"\n"}
-              {alamatPengiriman}
+              {this.state.alamatPengiriman}
               {"\n"}
-              {noTelepon}
+              {this.state.noTelepon}
             </Text>
           </Card>
         </View>
       </ScrollView>
     </>
   );
+}
 }
 
 const styles = StyleSheet.create({
@@ -223,5 +232,3 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
 });
-
-export default DetailReward_Hadiah;
